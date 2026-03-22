@@ -8,12 +8,40 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 const moods = ["😊", "😮", "😴", "🦄", "🛸"];
 
 export default function DreamClient({ profile }: { profile: any }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedMood, setSelectedMood] = useState(1);
+  const [dreamText, setDreamText] = useState("");
+  const [aiResponse, setAiResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const avatarImageSrc = profile?.selected_hero
     ? `/assets/circle-characters/${profile.selected_hero}-c.png`
     : `/assets/circle-characters/puf-c.png`;
+
+  const analyzeDream = async () => {
+    if (!dreamText.trim()) return;
+
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/dream", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          dream: dreamText,
+          mood: moods[selectedMood],
+          lang: language,
+        }),
+      });
+      const data = await response.json();
+      if (data.analysis) {
+        setAiResponse(data.analysis);
+      }
+    } catch (error) {
+      console.error("Error analyzing dream:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="bg-surface font-body text-on-surface min-h-dvh">
@@ -58,6 +86,8 @@ export default function DreamClient({ profile }: { profile: any }) {
           {/* Dream Text Area */}
           <div className="bg-surface-container-lowest rounded-xl p-6 shadow-[0_20px_40px_rgba(88,96,254,0.04)] ring-1 ring-outline-variant/10">
             <textarea
+              value={dreamText}
+              onChange={(e) => setDreamText(e.target.value)}
               className="w-full min-h-[240px] bg-transparent border-none focus:ring-0 text-xl font-body leading-relaxed text-on-surface placeholder:text-outline-variant/60 resize-none p-0 focus:outline-none"
               placeholder={t('dream.placeholder')}
             />
@@ -89,14 +119,26 @@ export default function DreamClient({ profile }: { profile: any }) {
           </div>
 
           {/* AI Feedback Area (Dynamic Appearance) */}
-          <div className="relative overflow-hidden bg-linear-to-br from-primary-container to-secondary-container rounded-xl p-1">
+          <div className={`relative overflow-hidden bg-linear-to-br from-primary-container to-secondary-container rounded-xl p-1 transition-all duration-500 ${aiResponse || isLoading ? 'opacity-100 translate-y-0' : 'opacity-50 translate-y-4'}`}>
             <div className="bg-surface-container-lowest rounded-[calc(1rem-4px)] p-6 flex gap-4 items-start shadow-inner">
-              <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-on-primary shrink-0">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+              <div className={`w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-on-primary shrink-0 ${isLoading ? 'animate-pulse' : ''}`}>
+                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>
+                  {isLoading ? 'hourglass_empty' : 'auto_awesome'}
+                </span>
               </div>
               <div className="space-y-1">
                 <p className="font-bold text-primary text-sm font-label uppercase tracking-wider">{t('dream.dreamGuideLabel')}</p>
-                <p className="text-lg font-medium leading-snug">{t('dream.dreamGuideText')}</p>
+                <div className="text-lg font-medium leading-snug">
+                  {isLoading ? (
+                    <div className="flex gap-1 items-center">
+                      <span className="animate-bounce">✨</span>
+                      <span className="animate-bounce [animation-delay:0.2s]">✨</span>
+                      <span className="animate-bounce [animation-delay:0.4s]">✨</span>
+                    </div>
+                  ) : (
+                    aiResponse || t('dream.dreamGuideText')
+                  )}
+                </div>
               </div>
             </div>
             {/* Abstract Nebula Decorations */}
@@ -107,8 +149,12 @@ export default function DreamClient({ profile }: { profile: any }) {
 
         {/* Action Button */}
         <div className="py-4">
-          <button className="w-full py-5 rounded-full bg-linear-to-r from-primary to-primary-container text-on-primary font-headline font-extrabold text-xl shadow-[0_20px_40px_rgba(88,96,254,0.3)] hover:opacity-90 active:scale-95 transition-all cursor-pointer">
-            {t('dream.saveButton')}
+          <button
+            onClick={analyzeDream}
+            disabled={isLoading || !dreamText.trim()}
+            className="w-full py-5 rounded-full bg-linear-to-r from-primary to-primary-container text-on-primary font-headline font-extrabold text-xl shadow-[0_20px_40px_rgba(88,96,254,0.3)] hover:opacity-90 active:scale-95 transition-all cursor-pointer disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed"
+          >
+            {isLoading ? "Analyzing..." : t('dream.saveButton')}
           </button>
         </div>
       </main>
