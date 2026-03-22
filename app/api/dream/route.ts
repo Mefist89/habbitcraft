@@ -37,8 +37,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ analysis: text });
   } catch (error: any) {
     console.error("Dream API Error Detail:", error?.message || error);
+    
+    let userMessage = error?.message || "Failed to analyze dream";
+    if (userMessage.includes("404") && userMessage.includes("models/gemini-1.5-flash")) {
+      userMessage = "Model not found. Please ensure you generated your API Key at https://aistudio.google.com and not Google Cloud Console.";
+    }
+
     return NextResponse.json(
-      { error: "Failed to analyze dream", details: error?.message },
+      { error: "Failed to analyze dream", details: userMessage },
       { status: 500 }
     );
   }
