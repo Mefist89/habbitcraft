@@ -35,9 +35,13 @@ export default function DreamClient({ profile }: { profile: any }) {
       const data = await response.json();
       if (data.analysis) {
         setAiResponse(data.analysis);
+      } else if (data.error) {
+        console.error("Dream API Error from Server:", data.error, data.details);
+        alert(`Eroare AI: ${data.details || data.error}`);
       }
     } catch (error) {
       console.error("Error analyzing dream:", error);
+      alert("A apărut o eroare la conectarea cu AI-ul.");
     } finally {
       setIsLoading(false);
     }
@@ -151,7 +155,7 @@ export default function DreamClient({ profile }: { profile: any }) {
         <div className="py-4">
           <button
             onClick={analyzeDream}
-            disabled={isLoading || !dreamText.trim()}
+            disabled={isLoading || dreamText.trim().length === 0}
             className="w-full py-5 rounded-full bg-linear-to-r from-primary to-primary-container text-on-primary font-headline font-extrabold text-xl shadow-[0_20px_40px_rgba(88,96,254,0.3)] hover:opacity-90 active:scale-95 transition-all cursor-pointer disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed"
           >
             {isLoading ? "Analyzing..." : t('dream.saveButton')}
