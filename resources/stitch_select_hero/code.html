@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6366F1", // Modern Indigo/Purple
+                        "secondary": "#8B5CF6",
+                        "tertiary": "#22C55E", // Vibrant Green
+                        "background-start": "#E0F2FE", // Light Blue
+                        "background-end": "#F5F3FF", // Light Purple
+                        "surface": "#FFFFFF",
+                        "on-surface": "#1E293B",
+                        "on-surface-variant": "#64748B",
+                        "outline": "#E2E8F0"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "card": "32px",
+                        "button": "9999px",
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background: linear-gradient(135deg, #E0F2FE 0%, #F5F3FF 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .progress-shadow {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface pb-24">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white/70 backdrop-blur-md">
+<button class="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-sm border border-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline font-bold text-xl tracking-tight text-primary">SELECT HERO</h1>
+<button class="w-12 h-12 flex items-center justify-center bg-white rounded-full shadow-sm border border-outline active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-24 px-6 max-w-lg mx-auto">
+<!-- Hero Carousel Section -->
+<section class="relative flex flex-col items-center py-4">
+<!-- Main Hero Card -->
+<div class="w-full bg-white rounded-[32px] p-4 shadow-xl shadow-indigo-100/50 border border-outline relative overflow-hidden">
+<!-- Background Decorative Gradients -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-48 h-48 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="relative aspect-square bg-slate-50 rounded-[24px] overflow-hidden flex items-center justify-center">
+<img alt="Hero Puf" class="w-4/5 h-4/5 object-contain" data-alt="Small cute round pink magical creature named Puf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUWCzzqfqWIocaaGX-HC67oYUl5IFCoATovF8yIlmuTe_29flseSWxo8cqrxZ1rG4IxoyiCAMg9kai9psjJ0cQfLfSTaIhYgPeRn9t8s1Lbq2RJ1fFmMPncaaEAmEodFzeH4m8euYTBB_fXKlgBOlEDQpVkW02pdzSuSaCl6JiEhrcLtxnRBxbIzEmR0gA-ACh0MCWGDlKfSe9s2Av8NCX-EuUX-Ggs2VYirXRfIRLefzNk05OBpeUVexq9_WS3apeahuTttRh14"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full font-headline text-[10px] font-bold tracking-widest text-primary shadow-sm border border-primary/10">
+                        HEALER
+                    </div>
+<!-- Refined Navigation Arrows -->
+<button class="absolute left-2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-outline shadow-sm flex items-center justify-center active:scale-90 transition-all text-on-surface">
+<span class="material-symbols-outlined text-xl" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="absolute right-2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-outline shadow-sm flex items-center justify-center active:scale-90 transition-all text-on-surface">
+<span class="material-symbols-outlined text-xl" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-headline text-3xl font-black text-primary tracking-tight">Puf</h2>
+<p class="font-body text-sm text-on-surface-variant mt-1 px-4 leading-relaxed">"Gentle spirit with explosive restorative powers."</p>
+</div>
+</div>
+<!-- Selection Indicators -->
+<div class="flex gap-2 mt-6">
+<div class="w-8 h-2 bg-primary rounded-full"></div>
+<div class="w-2 h-2 bg-slate-200 rounded-full"></div>
+<div class="w-2 h-2 bg-slate-200 rounded-full"></div>
+</div>
+</section>
+<!-- Attributes Grid -->
+<section class="mt-8 bg-white rounded-[32px] p-8 shadow-lg shadow-indigo-100/30 border border-outline">
+<h3 class="font-headline text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                Hero Attributes
+            </h3>
+<div class="space-y-6">
+<!-- Power -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-500 text-lg" data-icon="swords">swords</span>
+<span class="font-headline text-xs font-bold text-slate-700">POWER</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">40%</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden progress-shadow">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<!-- Agility -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-lg" data-icon="bolt">bolt</span>
+<span class="font-headline text-xs font-bold text-slate-700">AGILITY</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">60%</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden progress-shadow">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<!-- Magic -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500 text-lg" data-icon="auto_fix_high">auto_fix_high</span>
+<span class="font-headline text-xs font-bold text-slate-700">MAGIC</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">100%</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden progress-shadow">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Luck -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-500 text-lg" data-icon="star">star</span>
+<span class="font-headline text-xs font-bold text-slate-700">LUCK</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">80%</span>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden progress-shadow">
+<div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<div class="mt-10 mb-16">
+<button class="w-full py-6 bg-tertiary text-white font-headline font-bold text-lg tracking-wider rounded-full shadow-lg shadow-green-200 active:scale-[0.98] active:bg-green-600 transition-all">
+                CONFIRM SELECTION
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 px-6 bg-white/80 backdrop-blur-xl border-t border-outline rounded-t-[40px]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 opacity-50">
+<span class="material-symbols-outlined text-2xl" data-icon="map">map</span>
+<span class="font-headline text-[10px] font-bold uppercase mt-1">QUESTS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary p-2 relative">
+<div class="absolute -top-1 w-12 h-1 bg-primary rounded-full"></div>
+<span class="material-symbols-outlined text-2xl" data-icon="group">group</span>
+<span class="font-headline text-[10px] font-bold uppercase mt-1">HEROES</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 opacity-50">
+<span class="material-symbols-outlined text-2xl" data-icon="public">public</span>
+<span class="font-headline text-[10px] font-bold uppercase mt-1">WORLD</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 opacity-50">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-headline text-[10px] font-bold uppercase mt-1">STORE</span>
+</div>
+</nav>
+</body></html>

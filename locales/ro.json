@@ -1,0 +1,202 @@
+{
+  "settings": {
+    "title": "Setări",
+    "profile": {
+      "title": "Profil",
+      "edit": "Editează Profilul",
+      "editDesc": "Schimbă-ți numele și avatarul",
+      "age": "Vârstă",
+      "ageDesc": "Actualizează-ți vârsta"
+    },
+    "preferences": {
+      "title": "Preferințe",
+      "language": "Limbă",
+      "languageDesc": "Alege limba preferată",
+      "notifications": "Notificări",
+      "notificationsDesc": "Mementouri și alerte",
+      "sound": "Efecte Sonore",
+      "soundDesc": "Sunete în aplicație",
+      "darkMode": "Mod Întunecat",
+      "darkModeDesc": "În curând",
+      "theme": "Temă Modernă",
+      "themeDesc": "Alege stilul vizual"
+    },
+    "about": {
+      "title": "Despre",
+      "version": "Versiunea Aplicației",
+      "terms": "Termeni de Utilizare",
+      "termsDesc": "Citește termenii noștri",
+      "privacy": "Politica de Confidențialitate",
+      "privacyDesc": "Cum te protejăm"
+    },
+    "about_puf_description": "Companionul tău pufos care te încurajează zilnic.",
+    "select_hero_title": "Alege-ți Eroul",
+    "select_hero_subtitle": "Acest mic prieten te va însoți zilnic în obiceiurile și misiunile tale.",
+    "select_hero_continue": "Continuă",
+    "logout": "DECONECTARE",
+    "footer": "HabbitCraft v1.0.0 • Făcut cu 💜"
+  },
+  "dashboard": {
+    "welcome": "Salutare",
+    "ready": "Pregătit pentru aventura de azi?",
+    "level": "Nivelul",
+    "citadel": {
+      "title": "Citadela",
+      "desc": "Misiuni și task-uri"
+    },
+    "training": {
+      "title": "Antrenament",
+      "desc": "Câștigă XP rapid"
+    },
+    "zen": {
+      "title": "Zona Zen",
+      "desc": "Refă-ți energia"
+    },
+    "journal": {
+      "title": "Jurnal",
+      "desc": "Istoria eroului"
+    },
+    "start": "Începe Aventura!",
+    "nav": {
+      "home": "Acasă",
+      "quests": "Misiuni",
+      "train": "Antren.",
+      "sleep": "Somn"
+    }
+  },
+  "zen": {
+    "title": "Zona Zen",
+    "quietTime": "✨ Timp de Liniște",
+    "heading": "Zona Zen: Reîncarcare & Relaxare",
+    "description": "Ia-ți un moment să respiri. Acesta este spațiul tău pentru a-ți lăsa mintea să călătorească printre stele.",
+    "rechargeTitle": "Reîncărcăm Energia...",
+    "rechargeDesc": "Odihna aici regenerează HP-ul Eroului pentru bătăliile de mâine.",
+    "healingAudios": "Sunete Vindecătoare",
+    "seeAll": "Vezi toate",
+    "audio1Title": "Mindfulness pentru Eroi",
+    "audio1Desc": "8 min • Meditație ghidată",
+    "audio2Title": "Respirație Profundă (3 min)",
+    "audio2Desc": "Recuperare rapidă • Concentrare",
+    "audio3Title": "Sunete Calmante Stelare",
+    "audio3Desc": "Buclă infinită • Ambiental",
+    "currentLevel": "Nivelul curent de Zen",
+    "levelDesc": "Te simți destul de confortabil! Continuă să te relaxezi până la 100%.",
+    "relaxActivities": "Activități de Relaxare",
+    "relax1": "Măzgălituri Zen",
+    "relax2": "Citit Fabule",
+    "relax3": "Ceaiul Eroului"
+  },
+  "quest": {
+    "dailyDefense": "🛡️ Apărare Zilnică",
+    "heading": "Tabla de Misiuni: Citadela",
+    "description": "Erou, scutul tău are nevoie de reîncărcare! Completează sarcinile pentru a întări orașul.",
+    "shieldRecharging": "Se reîncarcă Scutul",
+    "missionClock": "Cronometrul Misiunii",
+    "missionClockDesc": "Minute rămase pentru sarcina curentă",
+    "activeQuests": "Misiuni Active",
+    "quest1Title": "Fă-ți patul",
+    "quest1Desc": "Aranjează camera de dormit pentru bonus maxim de odihnă.",
+    "quest1Reward": "+5 Aur",
+    "quest2Title": "Hrănește animalul",
+    "quest2Desc": "Companionul tău loial are nevoie de hrană pentru călătorie.",
+    "quest2Reward": "+10 Aur",
+    "quest3Title": "Maestrul Temelor",
+    "quest3Desc": "Deschide pergamentele înțelepciunii și completează ritualul învățării.",
+    "quest3Reward": "+20 Aur",
+    "acceptQuest": "Acceptă Misiunea",
+    "beginEpicQuest": "Începe Misiunea Epică",
+    "proTipTitle": "Sfatul Eroului",
+    "proTipDesc": "Completarea a 3 misiuni la rând activează \"Explozia Nebuloasei\" – dublând toate recompensele de Aur pentru ora următoare! ⚡"
+  },
+  "dream": {
+    "heading": "Spune-mi visul tău 📝",
+    "subtitle": "Capturează magia înainte să se risipească...",
+    "placeholder": "Zburam pe o pisică uriașă...",
+    "detailsLabel": "Detaliile Visului",
+    "moodTitle": "Cum te-ai simțit?",
+    "dreamGuideLabel": "Ghidul Viselor",
+    "dreamGuideText": "Uau, visele cu zbor înseamnă că te simți foarte liber! 🌟 Imaginația ta te duce în locuri minunate.",
+    "saveButton": "Salvează în Jurnalul Meu"
+  },
+  "training": {
+    "badge": "⚔️ Antrenamentul Eroului",
+    "heading": "Teren de Antrenament",
+    "description": "Construiește obiceiuri sănătoase, crește nivelul eroului tău și câștigă XP pentru fiecare provocare!",
+    "dailyStreak": "Serie Zilnică",
+    "days": "zile",
+    "todayChallenges": "Provocările de Azi",
+    "challenge1Title": "Bea Apă",
+    "challenge1Desc": "Bea 3 pahare de apă înainte de prânz pentru a-ți hidrata eroul.",
+    "challenge1Reward": "+5 XP",
+    "challenge2Title": "Citește o Carte",
+    "challenge2Desc": "Citește cel puțin 15 minute pentru a-ți crește statistica de înțelepciune.",
+    "challenge2Reward": "+10 XP",
+    "challenge3Title": "Exerciții Fizice",
+    "challenge3Desc": "Fă 10 sărituri pe loc pentru a-ți crește agilitatea!",
+    "challenge3Reward": "+15 XP",
+    "completeChallenge": "Completează",
+    "heroStats": "Statisticile Eroului",
+    "power": "Putere",
+    "agility": "Agilitate",
+    "wisdom": "Înțelepciune",
+    "luck": "Noroc"
+  },
+  "parentDashboard": {
+    "heading": "Panoul Părintelui",
+    "subtitle": "Monitorizează progresul și bunăstarea copilului tău",
+    "childOverview": "Prezentare Generală",
+    "questsCompleted": "Misiuni Completate",
+    "streakDays": "Zile la Rând",
+    "totalXP": "XP Total",
+    "level": "Nivel",
+    "weeklyActivity": "Activitatea Săptămânală",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mie",
+    "thu": "Joi",
+    "fri": "Vin",
+    "sat": "Sâm",
+    "sun": "Dum",
+    "sleepTracking": "Monitorizare Somn",
+    "avgSleep": "Timp Mediu Somn",
+    "sleepQuality": "Calitatea Somnului",
+    "sleepQualityValue": "Excelentă",
+    "moodOverview": "Prezentare Stare de Spirit",
+    "moodLabel": "Cea mai frecventă stare din această săptămână",
+    "recentDreams": "Vise Recente",
+    "dream1": "Zburam peste un castel cu curcubeu 🌈",
+    "dream2": "Mă jucam cu dragoni prietenoși 🐉",
+    "dream3": "Exploram un regat subacvatic 🐠",
+    "settings": "Setări",
+    "notifications": "Notificări",
+    "manageHabits": "Gestionează Obiceiuri",
+    "viewReports": "Vezi Rapoarte",
+    "parentTasks": "Sarcini pentru Copil",
+    "addTaskPlaceholder": "Adaugă o sarcină nouă...",
+    "addTask": "Adaugă",
+    "noTasks": "Nicio sarcină încă. Adaugă una mai sus!",
+    "taskCompleted": "Completată",
+    "taskPending": "În așteptare"
+  },
+  "common": {
+    "language_names": {
+      "en": "English",
+      "ro": "Română"
+    }
+  },
+  "shop": {
+    "title": "Magazin de Recompense",
+    "description": "Cheltuie XP-ul tău câștigat pe recompense epice setate de părinți!",
+    "buy": "Cumpără",
+    "cost": "Cost",
+    "notEnoughXp": "XP Insuficient",
+    "confirmPurchase": "Ești sigur că vrei să cumperi această recompensă?",
+    "success": "Cumpărat cu succes!",
+    "noRewards": "Nicio recompensă momentan. Roagă-ți părinții să adauge câteva!",
+    "addReward": "Adaugă Recompensă",
+    "yourRewards": "Gestionează Recompense",
+    "rewardTitle": "Titlu Recompensă",
+    "rewardDesc": "Descriere (Opțional)",
+    "rewardCost": "Cost XP"
+  }
+}

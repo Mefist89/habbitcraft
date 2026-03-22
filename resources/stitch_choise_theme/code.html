@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Be+Vietnam+Pro:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#a6a6a6",
+              "outline": "#373737",
+              "inverse-on-surface": "#ffffff",
+              "on-tertiary-fixed": "#0b2000",
+              "error-dim": "#b41340",
+              "on-error": "#ffffff",
+              "tertiary-fixed-dim": "#c6dcab",
+              "outline-variant": "#555555",
+              "on-tertiary-fixed-variant": "#263514",
+              "secondary-dim": "#5c4bb4",
+              "on-secondary-fixed": "#21005d",
+              "on-primary-fixed": "#00006e",
+              "on-primary-container": "#00006e",
+              "on-secondary-fixed-variant": "#4f378b",
+              "tertiary-fixed": "#e2f9c4",
+              "primary-dim": "#3c43e4",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#f74b6d",
+              "inverse-primary": "#afb2ff",
+              "primary-container": "#afb2ff",
+              "on-error-container": "#3f000e",
+              "on-tertiary-container": "#0b2000",
+              "surface-container": "#c6c6c6",
+              "background": "#f0f4ff",
+              "tertiary-dim": "#7db23e",
+              "surface": "#ffffff",
+              "primary-fixed": "#e0e0ff",
+              "on-surface-variant": "#555555",
+              "primary": "#3c43e4",
+              "secondary-container": "#d4cbff",
+              "secondary": "#5c4bb4",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#eaddff",
+              "on-secondary-container": "#1a0063",
+              "inverse-surface": "#2f2950",
+              "surface-tint": "#3c43e4",
+              "surface-bright": "#fcfcfc",
+              "surface-variant": "#f1f0f4",
+              "on-background": "#1b1b1f",
+              "tertiary": "#7db23e",
+              "secondary-fixed-dim": "#d0bcff",
+              "surface-container-high": "#e6e6e6",
+              "on-primary": "#ffffff",
+              "error": "#b41340",
+              "tertiary-container": "#b4e67e",
+              "on-secondary": "#ffffff",
+              "surface-container-highest": "#e2e2e6",
+              "on-surface": "#1b1b1f",
+              "surface-container-low": "#f7f7f7",
+              "primary-fixed-dim": "#bfc2ff",
+              "on-primary-fixed-variant": "#0000af"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "1rem",
+              "xl": "1.5rem",
+              "2xl": "2rem",
+              "3xl": "2.5rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .soft-shadow {
+        box-shadow: 0 10px 30px -5px rgba(60, 67, 228, 0.15), 0 4px 10px -2px rgba(60, 67, 228, 0.05);
+      }
+      .active-ring {
+        ring: 4px;
+        ring-color: #3c43e4;
+      }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-white/80 backdrop-blur-md border-b border-surface-container-highest">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="menu">menu</span>
+<h1 class="font-headline font-bold text-xl text-on-background tracking-tight">PIXEL QUEST</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-white shadow-sm">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="8-bit hero pixel avatar headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcS4UV5PjlDz0TL7rmN3mD65LTg5aSCwfVFaFNWo_xq8Qv5JBaiI_SsKvQaPhXuLr3a7xJQ8B7QG5ZwDsR5iT28lY_FCxv2xz5WLPb9sGpDmgCENsIZkueWcXtIK2dw-inC5gjkFOAsJNwtubS3m5g_Jzy8vY0d7lji_HLIe449S5lL0SKtjiXEtyJHB-82qh0tdEuw4NYjp68BVwsAGrMnELminM5xWxLkqNIxrfWYrYC_6LQ3cGKb40rtdfbX1zkJVy0ESkm4s"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-28 pb-32 px-6 max-w-lg mx-auto w-full flex flex-col items-center relative overflow-hidden">
+<!-- Elegant Floating Zzz -->
+<div class="absolute top-24 right-4 text-primary font-headline font-bold opacity-10 select-none pointer-events-none animate-bounce" style="animation-duration: 4s;">
+<div class="text-5xl">Z</div>
+<div class="text-3xl translate-x-3">Z</div>
+<div class="text-xl translate-x-6">z</div>
+</div>
+<div class="absolute bottom-60 left-0 text-primary font-headline font-bold opacity-10 select-none pointer-events-none animate-pulse" style="animation-duration: 6s;">
+<div class="text-4xl">Z</div>
+<div class="text-2xl -translate-x-2">z</div>
+</div>
+<!-- Headline Section -->
+<section class="text-center mb-12">
+<div class="mb-6 flex justify-center">
+<img alt="HabitCraft Logo" class="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujLn61MJ1WPTcShBc87emGaR6c0h4KzuZ9Zb1kUaplhINMaaZyIl2smEOvKKCyaJKGnFf9dvftqDuN6vxrjv8cvJlo7SMGLFoHagDTxQN89lh6ZqrrniuEGNl1BEAQRDGKgn_bcH1X1L7JOUqz_0xJ0ytAlxqrkFh4wDX6d1ACivlzB_6ryPKjh9adnoBAfUDhP8zz5wk0PGJfIWmd1TV445ixfpHuPSLOHeLUD2KIgIC64ZSUoqZetIR-EiCexbUyem2oiiySKCw"/>
+</div>
+<h2 class="font-headline text-3xl font-bold text-on-background tracking-tight mb-3">Choose Your Theme</h2>
+<p class="text-on-surface-variant font-medium">Select your dream world aesthetic</p>
+</section>
+<!-- Theme Grid -->
+<div class="grid grid-cols-1 gap-8 w-full">
+<!-- Modern Edition Card -->
+<div class="group cursor-pointer relative bg-white rounded-3xl p-2 soft-shadow hover:scale-[1.02] transition-all duration-300">
+<div class="bg-gradient-to-br from-primary/5 to-secondary/10 rounded-[2rem] p-6 h-full flex flex-col items-center border border-primary/10 group-hover:border-primary/30 transition-colors">
+<div class="w-full aspect-video mb-6 rounded-2xl bg-white/50 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-inner">
+<img alt="Modern Preview" class="w-24 h-24 drop-shadow-lg" data-alt="Soft aesthetic cloud with minimalist sleeping icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6d4YrdCdztHwe2d7jAez6b1ytX0K6ko3xZcuVwPXHFIvnw6b1b4lBb4ep354T5P81MVfSrY5MSfywCgE97tjawms20GjYuo-aUs_kgCvIr6M_Bvgiqy9dxdyXx7TydngUNz1OvMw1Rk13N3CR8uygr6yw-nP4-xvwdxlduh0MqT52ci050NTqYqSiLaT3LOqfPCfypAHnIleqqptqe-7YymPzmdMgCdiiIbPyQPokxwET6SQ8hrRVbb6Du_Nf_2c3wpZLJhy6jPk"/>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-headline font-bold text-primary uppercase text-[10px] tracking-widest">HabitCraft</span>
+</div>
+<h3 class="text-2xl font-bold text-on-background mb-2">Modern Edition</h3>
+<p class="text-on-surface-variant text-center text-sm px-4 leading-relaxed">Smooth gradients and soft edges for a peaceful dream journey.</p>
+</div>
+</div>
+<!-- Minecraft Edition Card (Active Selection) -->
+<div class="group cursor-pointer relative bg-white rounded-3xl p-2 soft-shadow ring-4 ring-primary hover:scale-[1.02] transition-all duration-300">
+<div class="bg-gradient-to-br from-tertiary/5 to-primary/5 rounded-[2rem] p-6 h-full flex flex-col items-center border border-primary/20">
+<div class="w-full aspect-video mb-6 rounded-2xl bg-white/50 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-inner relative">
+<img alt="Minecraft Preview" class="w-full h-full object-cover opacity-80" data-alt="Voxel style landscape with blocky moon and stars" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl0ENqBZ5HBxslsqonLLT_6lzSiPLNncpD4BGFEHPBYmrW6uVROI02HoRnfl8cCnBjJ_GlwOh1HsXfuo7ovvinZbO6qVPdD1nhCBYUZLvhNySatJdzP0ekhxllX0-m8z9BvOCbpTep-HwNHfHCF2Yzbu5IYTUt7dEX05G9mYUNTi1BxrmsXTRdrQX2Vb_HQtHF6Bdy3leFIAG1WR1bW8RLTzYV8A7WjIUcDY_fbx5Ve45WOmbODzc-wc4aNCYg7j1C1r3cZgVMmJI"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-headline font-bold text-tertiary uppercase text-[10px] tracking-widest">HabitCraft</span>
+</div>
+<h3 class="text-2xl font-bold text-on-background mb-2 tracking-tight">Minecraft Edition</h3>
+<p class="text-on-surface-variant text-center text-sm px-4 leading-relaxed">A blocky world and classic 8-bit charm for the ultimate quest.</p>
+<!-- Modern Active State Checkmark -->
+<div class="absolute -top-3 -right-3 w-10 h-10 bg-primary rounded-full border-4 border-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white font-bold" data-icon="check" style="font-variation-settings: 'opsz' 20, 'wght' 700;">check</span>
+</div>
+<!-- Elegant Zzz for card -->
+<div class="absolute top-8 left-8 text-primary font-bold italic text-sm opacity-20">Zzz</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-14 w-full">
+<button class="w-full py-5 bg-primary hover:bg-primary-dim text-white font-headline font-bold text-lg rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-95">
+                Continue Adventure
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-white/90 backdrop-blur-md border-t border-surface-container-highest">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-colors hover:text-primary">
+<span class="material-symbols-outlined mb-1" data-icon="map">map</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-tighter">QUESTS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-colors hover:text-primary">
+<span class="material-symbols-outlined mb-1" data-icon="backpack">backpack</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-tighter">INVENTORY</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 transition-colors hover:text-primary">
+<span class="material-symbols-outlined mb-1" data-icon="group">group</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-tighter">GUILD</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary bg-primary/10 rounded-xl px-4 py-2">
+<span class="material-symbols-outlined mb-1" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-tighter">SETTINGS</span>
+</div>
+</nav>
+</body></html>

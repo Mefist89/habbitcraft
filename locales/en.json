@@ -1,0 +1,202 @@
+{
+  "settings": {
+    "title": "Settings",
+    "profile": {
+      "title": "Profile",
+      "edit": "Edit Profile",
+      "editDesc": "Change your name and avatar",
+      "about_puf_description": "Companionul tău pufos care te încurajează zilnic.",
+      "select_hero_title": "Choose your Guardian 🧝‍♂️",
+      "select_hero_subtitle": "This little friend will accompany you on your daily habits and epic quests.",
+      "select_hero_continue": "Continue",
+      "age": "Age",
+      "ageDesc": "Update your age"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "language": "Language",
+      "languageDesc": "Choose your language",
+      "notifications": "Notifications",
+      "notificationsDesc": "Reminders & alerts",
+      "sound": "Sound Effects",
+      "soundDesc": "In-app sounds",
+      "darkMode": "Dark Mode",
+      "darkModeDesc": "Coming soon",
+      "theme": "Modern Theme",
+      "themeDesc": "Choose your visual style"
+    },
+    "about": {
+      "title": "About",
+      "version": "App Version",
+      "terms": "Terms of Use",
+      "termsDesc": "Read our terms",
+      "privacy": "Privacy Policy",
+      "privacyDesc": "How we protect you"
+    },
+    "logout": "LOG OUT",
+    "footer": "HabbitCraft v1.0.0 • Made with 💜"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "ready": "Ready for your daily quest?",
+    "level": "Level",
+    "citadel": {
+      "title": "Citadel",
+      "desc": "Quests & Missions"
+    },
+    "training": {
+      "title": "Training",
+      "desc": "Gain XP fast"
+    },
+    "zen": {
+      "title": "Zen Zone",
+      "desc": "Recharge energy"
+    },
+    "journal": {
+      "title": "Dream Journal",
+      "desc": "Write your story"
+    },
+    "start": "Start Adventure!",
+    "nav": {
+      "home": "Home",
+      "quests": "Quests",
+      "train": "Train",
+      "sleep": "Sleep"
+    }
+  },
+  "zen": {
+    "title": "Zen Zone",
+    "quietTime": "✨ Quiet Time",
+    "heading": "Zen Zone: Recover & Relax",
+    "description": "Take a moment to breathe. This is your space to let your mind wander through the stars.",
+    "rechargeTitle": "Recharging Energy...",
+    "rechargeDesc": "Resting here regenerates your Hero's HP for tomorrow's battles.",
+    "healingAudios": "Healing Audios",
+    "seeAll": "See all",
+    "audio1Title": "Mindfulness for Heroes",
+    "audio1Desc": "8 mins • Guided meditation",
+    "audio2Title": "Deep Breathing (3 mins)",
+    "audio2Desc": "Quick recovery • Focus",
+    "audio3Title": "Calming Starfield Sounds",
+    "audio3Desc": "Infinite loop • Ambient",
+    "currentLevel": "Current Zen Level",
+    "levelDesc": "You're feeling quite cozy! Keep relaxing to reach 100%.",
+    "relaxActivities": "Quick Relax Activities",
+    "relax1": "Zen Doodle",
+    "relax2": "Fable Reading",
+    "relax3": "Hero's Tea"
+  },
+  "quest": {
+    "dailyDefense": "🛡️ Daily Defense",
+    "heading": "Quest Board: Citadela",
+    "description": "Hero, your shield needs recharging! Complete tasks to power up the city.",
+    "shieldRecharging": "Shield Recharging",
+    "missionClock": "Mission Clock",
+    "missionClockDesc": "Minutes remaining for current task",
+    "activeQuests": "Active Quests",
+    "quest1Title": "Make your bed",
+    "quest1Desc": "Tidy the sleeping chambers for maximum rest bonus.",
+    "quest1Reward": "+5 Gold",
+    "quest2Title": "Feed the Pet",
+    "quest2Desc": "Your loyal companion requires sustenance for the journey.",
+    "quest2Reward": "+10 Gold",
+    "quest3Title": "Homework Mastery",
+    "quest3Desc": "Unlock the scrolls of wisdom and complete the ritual of learning.",
+    "quest3Reward": "+20 Gold",
+    "acceptQuest": "Accept Quest",
+    "beginEpicQuest": "Begin Epic Quest",
+    "proTipTitle": "Hero's Pro-Tip",
+    "proTipDesc": "Completing 3 quests in a row activates the \"Nebula Burst\" – doubling all Gold rewards for the next hour! ⚡"
+  },
+  "dream": {
+    "heading": "Tell me your dream 📝",
+    "subtitle": "Capture the magic before it fades away...",
+    "placeholder": "I was flying on a giant cat...",
+    "detailsLabel": "Dream Details",
+    "moodTitle": "How did it feel?",
+    "dreamGuideLabel": "Dream Guide",
+    "dreamGuideText": "Wow, flying dreams mean you're feeling very free! 🌟 Your imagination is taking you to wonderful places.",
+    "saveButton": "Save to My Journal"
+  },
+  "training": {
+    "badge": "⚔️ Hero Training",
+    "heading": "Training Ground",
+    "description": "Build healthy habits, level up your hero, and earn XP for every challenge you crush!",
+    "dailyStreak": "Daily Streak",
+    "days": "days",
+    "todayChallenges": "Today's Challenges",
+    "challenge1Title": "Drink Water",
+    "challenge1Desc": "Drink 3 glasses of water before noon to hydrate your hero.",
+    "challenge1Reward": "+5 XP",
+    "challenge2Title": "Read a Book",
+    "challenge2Desc": "Read for at least 15 minutes to boost your wisdom stat.",
+    "challenge2Reward": "+10 XP",
+    "challenge3Title": "Exercise",
+    "challenge3Desc": "Do 10 jumping jacks to power up your agility!",
+    "challenge3Reward": "+15 XP",
+    "completeChallenge": "Complete",
+    "heroStats": "Hero Stats",
+    "power": "Power",
+    "agility": "Agility",
+    "wisdom": "Wisdom",
+    "luck": "Luck"
+  },
+  "parentDashboard": {
+    "heading": "Parent Dashboard",
+    "subtitle": "Monitor your child's progress and well-being",
+    "childOverview": "Child Overview",
+    "questsCompleted": "Quests Completed",
+    "streakDays": "Streak Days",
+    "totalXP": "Total XP",
+    "level": "Level",
+    "weeklyActivity": "Weekly Activity",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "sleepTracking": "Sleep Tracking",
+    "avgSleep": "Avg. Sleep Time",
+    "sleepQuality": "Sleep Quality",
+    "sleepQualityValue": "Great",
+    "moodOverview": "Mood Overview",
+    "moodLabel": "Most frequent mood this week",
+    "recentDreams": "Recent Dreams",
+    "dream1": "Flying over a rainbow castle 🌈",
+    "dream2": "Playing with friendly dragons 🐉",
+    "dream3": "Exploring an underwater kingdom 🐠",
+    "settings": "Settings",
+    "notifications": "Notifications",
+    "manageHabits": "Manage Habits",
+    "viewReports": "View Reports",
+    "parentTasks": "Tasks for Child",
+    "addTaskPlaceholder": "Add a new task...",
+    "addTask": "Add",
+    "noTasks": "No tasks yet. Add one above!",
+    "taskCompleted": "Completed",
+    "taskPending": "Pending"
+  },
+  "common": {
+    "language_names": {
+      "en": "English",
+      "ro": "Română"
+    }
+  },
+  "shop": {
+    "title": "Rewards Shop",
+    "description": "Spend your hard-earned XP on epic rewards set by your parents!",
+    "buy": "Buy",
+    "cost": "Cost",
+    "notEnoughXp": "Not enough XP",
+    "confirmPurchase": "Are you sure you want to buy this reward?",
+    "success": "Purchased Successfully!",
+    "noRewards": "No rewards available yet. Ask your parents to add some!",
+    "addReward": "Add Reward",
+    "yourRewards": "Manage Rewards",
+    "rewardTitle": "Reward Title",
+    "rewardDesc": "Description (Optional)",
+    "rewardCost": "XP Cost"
+  }
+}
