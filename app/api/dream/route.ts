@@ -16,7 +16,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
     const systemPrompt = `
       You are a magical Dream Guide in a kid-friendly app called HabbitCraft. 
@@ -39,8 +39,8 @@ export async function POST(req: Request) {
     console.error("Dream API Error Detail:", error?.message || error);
     
     let userMessage = error?.message || "Failed to analyze dream";
-    if (userMessage.includes("404") && userMessage.includes("models/gemini-1.5-flash")) {
-      userMessage = "Model not found. Please ensure you generated your API Key at https://aistudio.google.com and not Google Cloud Console.";
+    if (userMessage.includes("404") || userMessage.includes("not found")) {
+      userMessage = "Se pare că acest model Gemini nu e disponibil direct în regiunea ta (Moldova). Încearcă să folosești un VPN setat pe România sau USA.";
     }
 
     return NextResponse.json(
