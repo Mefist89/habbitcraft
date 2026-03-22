@@ -6,8 +6,10 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 export async function POST(req: Request) {
   try {
     const { dream, mood, lang } = await req.json();
+    console.log("Dream API Request:", { dream, mood, lang });
 
     if (!process.env.GEMINI_API_KEY) {
+      console.error("Dream API Error: GEMINI_API_KEY is missing from environment");
       return NextResponse.json(
         { error: "Gemini API Key is missing" },
         { status: 500 }
@@ -30,12 +32,13 @@ export async function POST(req: Request) {
     const result = await model.generateContent([systemPrompt, prompt]);
     const response = await result.response;
     const text = response.text();
+    console.log("Dream API Success:", text);
 
     return NextResponse.json({ analysis: text });
-  } catch (error) {
-    console.error("Dream API Error:", error);
+  } catch (error: any) {
+    console.error("Dream API Error Detail:", error?.message || error);
     return NextResponse.json(
-      { error: "Failed to analyze dream" },
+      { error: "Failed to analyze dream", details: error?.message },
       { status: 500 }
     );
   }
