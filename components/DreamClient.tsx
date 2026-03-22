@@ -92,6 +92,7 @@ export default function DreamClient({ profile }: { profile: any }) {
             <textarea
               value={dreamText}
               onChange={(e) => setDreamText(e.target.value)}
+              suppressHydrationWarning
               className="w-full min-h-[240px] bg-transparent border-none focus:ring-0 text-xl font-body leading-relaxed text-on-surface placeholder:text-outline-variant/60 resize-none p-0 focus:outline-none"
               placeholder={t('dream.placeholder')}
             />
