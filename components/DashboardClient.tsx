@@ -122,6 +122,28 @@ export default function DashboardClient({ profile }: { profile: any }) {
             </div>
           </Link>
 
+          {/* Daily Quest */}
+          <Link href="/quest" className="group text-left p-6 rounded-3xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-orange-200/40 hover:border-orange-200 hover:scale-[1.02] border border-transparent transition-all active:scale-95 flex flex-col items-start gap-4 cursor-pointer">
+            <div className="w-14 h-14 rounded-2xl bg-orange-100 flex items-center justify-center text-3xl">
+              ☀️
+            </div>
+            <div>
+              <h3 className="font-headline font-bold text-xl text-on-surface">{t('dashboard.dailyQuest.title')}</h3>
+              <p className="text-sm text-on-surface-variant">{t('dashboard.dailyQuest.desc')}</p>
+            </div>
+          </Link>
+
+          {/* Shop */}
+          <Link href="/shop" className="group text-left p-6 rounded-3xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-pink-200/40 hover:border-pink-200 hover:scale-[1.02] border border-transparent transition-all active:scale-95 flex flex-col items-start gap-4 cursor-pointer">
+            <div className="w-14 h-14 rounded-2xl bg-pink-100 flex items-center justify-center text-3xl">
+              🛍️
+            </div>
+            <div>
+              <h3 className="font-headline font-bold text-xl text-on-surface">{t('dashboard.shop.title')}</h3>
+              <p className="text-sm text-on-surface-variant">{t('dashboard.shop.desc')}</p>
+            </div>
+          </Link>
+
           {/* Zen Zone */}
           <Link href="/zen" className="group text-left p-6 rounded-3xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-tertiary/10 hover:border-tertiary/20 hover:scale-[1.02] border border-transparent transition-all active:scale-95 flex flex-col items-start gap-4">
             <div className="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center text-3xl">
@@ -148,7 +170,7 @@ export default function DashboardClient({ profile }: { profile: any }) {
         {/* CTA Section */}
         <section className="pt-6 pb-6 flex justify-center w-full">
           <Link 
-            href="/disclaimer"
+            href="/quest"
             className="w-full py-5 bg-linear-to-r from-primary to-primary-light text-white font-headline font-bold text-lg rounded-full shadow-[0_15px_30px_rgba(60,67,228,0.25)] hover:shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer"
           >
             <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>

@@ -65,6 +65,14 @@
       "title": "Antrenament",
       "desc": "Câștigă XP rapid"
     },
+    "dailyQuest": {
+      "title": "Misiunea Zilei",
+      "desc": "O provocare scurtă pentru azi"
+    },
+    "shop": {
+      "title": "Magazin",
+      "desc": "Cheltuie XP pe recompense"
+    },
     "zen": {
       "title": "Zona Zen",
       "desc": "Refă-ți energia"

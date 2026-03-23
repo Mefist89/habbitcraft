@@ -65,6 +65,14 @@
       "title": "Training",
       "desc": "Gain XP fast"
     },
+    "dailyQuest": {
+      "title": "Daily Quest",
+      "desc": "One quick mission today"
+    },
+    "shop": {
+      "title": "Shop",
+      "desc": "Spend XP on rewards"
+    },
     "zen": {
       "title": "Zen Zone",
       "desc": "Recharge energy"

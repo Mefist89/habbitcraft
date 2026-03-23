@@ -489,7 +489,7 @@ export default function DreamClient({
         </Link>
         <Link
           href="/quest"
-          className="group flex flex-col items-center justify-center rounded-full px-4 py-2 text-slate-400 transition-all hover:bg-slate-100 active:scale-90"
+          className="group flex flex-col items-center justify-center rounded-full px-3 py-2 text-slate-400 transition-all hover:bg-slate-100 active:scale-90"
         >
           <span className="material-symbols-outlined group-hover:text-primary">fort</span>
           <span className="mt-1 font-body text-[10px] font-bold uppercase tracking-widest group-hover:text-primary">
@@ -497,8 +497,17 @@ export default function DreamClient({
           </span>
         </Link>
         <Link
+          href="/training"
+          className="group flex flex-col items-center justify-center rounded-full px-3 py-2 text-slate-400 transition-all hover:bg-slate-100 active:scale-90"
+        >
+          <span className="material-symbols-outlined group-hover:text-primary">fitness_center</span>
+          <span className="mt-1 font-body text-[10px] font-bold uppercase tracking-widest group-hover:text-primary">
+            Training
+          </span>
+        </Link>
+        <Link
           href="/zen"
-          className="group flex flex-col items-center justify-center rounded-full px-4 py-2 text-slate-400 transition-all hover:bg-slate-100 active:scale-90"
+          className="group flex flex-col items-center justify-center rounded-full px-3 py-2 text-slate-400 transition-all hover:bg-slate-100 active:scale-90"
         >
           <span className="material-symbols-outlined group-hover:text-primary">dark_mode</span>
           <span className="mt-1 font-body text-[10px] font-bold uppercase tracking-widest group-hover:text-primary">
