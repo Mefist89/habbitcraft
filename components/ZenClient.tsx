@@ -3,13 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { getHeroImageSrc } from "@/lib/heroAssets";
 
 export default function ZenClient({ profile }: { profile: any }) {
   const { t } = useLanguage();
 
-  const heroImageSrc = profile?.selected_hero 
-    ? `/assets/characters/${profile.selected_hero}.png` 
-    : `/assets/characters/puf.png`;
+  const heroImageSrc = getHeroImageSrc(profile?.selected_hero);
 
   return (
     <div className="bg-surface font-body text-on-surface min-h-[100dvh] pb-32">
@@ -160,14 +159,14 @@ export default function ZenClient({ profile }: { profile: any }) {
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">home</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Home</span>
         </Link>
-        <button className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
+        <Link href="/quest" className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">explore</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Quests</span>
-        </button>
-        <button className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
+        </Link>
+        <Link href="/training" className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">fitness_center</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Training</span>
-        </button>
+        </Link>
         <Link href="/zen" className="flex flex-col items-center justify-center bg-[#ded8ff] text-[#5860fe] rounded-full px-6 py-2 scale-110 transition-all border border-transparent shadow-sm">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>dark_mode</span>
           <span className="font-body font-medium text-[10px]">Sleep</span>

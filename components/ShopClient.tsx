@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { getHeroAvatarSrc } from "@/lib/heroAssets";
 
 interface Reward {
   id: string;
@@ -21,9 +22,7 @@ export default function ShopClient({ profile }: { profile: any }) {
   const [purchaseStatus, setPurchaseStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [purchaseError, setPurchaseError] = useState('');
 
-  const avatarImageSrc = profile?.selected_hero 
-    ? `/assets/circle-characters/${profile.selected_hero}-c.png` 
-    : `/assets/circle-characters/puf-c.png`;
+  const avatarImageSrc = getHeroAvatarSrc(profile?.selected_hero);
 
   const fetchXP = useCallback(async () => {
     try {

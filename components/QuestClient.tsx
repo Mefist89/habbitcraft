@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { getHeroAvatarSrc, getHeroImageSrc } from "@/lib/heroAssets";
 
 interface ParentTask {
   id: string;
@@ -20,12 +21,8 @@ export default function QuestClient({ profile }: { profile: any }) {
   const [currentXP, setCurrentXP] = useState(profile?.xp || 0);
   const [currentLevel, setCurrentLevel] = useState(profile?.level || 1);
 
-  const heroImageSrc = profile?.selected_hero
-    ? `/assets/characters/${profile.selected_hero}.png`
-    : `/assets/characters/puf.png`;
-  const avatarImageSrc = profile?.selected_hero 
-    ? `/assets/circle-characters/${profile.selected_hero}-c.png` 
-    : `/assets/circle-characters/puf-c.png`;
+  const heroImageSrc = getHeroImageSrc(profile?.selected_hero);
+  const avatarImageSrc = getHeroAvatarSrc(profile?.selected_hero);
 
   const fetchParentTasks = useCallback(async () => {
     try {

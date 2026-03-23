@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { getHeroAvatarSrc } from "@/lib/heroAssets";
 
 interface Task {
   id: string;
@@ -38,9 +39,7 @@ export default function ParentDashboardClient({ profile }: { profile: any }) {
   const [loading, setLoading] = useState(false);
 
   const childName = profile?.name ? profile.name.split(" ")[0] : "Explorer";
-  const avatarImageSrc = profile?.selected_hero
-    ? `/assets/circle-characters/${profile.selected_hero}-c.png`
-    : `/assets/circle-characters/puf-c.png`;
+  const avatarImageSrc = getHeroAvatarSrc(profile?.selected_hero);
   const level = profile?.level || 1;
 
   const fetchTasks = useCallback(async () => {

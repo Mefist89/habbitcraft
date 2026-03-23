@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -44,12 +45,17 @@ export default function LandingPage() {
       {/* Main Content Container */}
       <main className="relative z-10 flex flex-col items-center justify-center h-full space-y-12">
         {/* Logo Section */}
-        <div className="text-center">
-          <h1 className="font-headline font-bold text-[56px] md:text-[72px] text-[#6C63FF] tracking-tight leading-none drop-shadow-sm">
-            DreamQuest
-          </h1>
-          <p className="font-body font-medium text-[#636E72]/60 uppercase tracking-[0.3em] text-sm mt-2">
-            Infinite Wonders
+        <div className="text-center flex flex-col items-center">
+          <Image
+            src="/assets/logo/logo.png"
+            alt="HabbitCraft"
+            width={260}
+            height={90}
+            className="h-auto w-[220px] md:w-[260px] drop-shadow-sm"
+            priority
+          />
+          <p className="font-body font-medium text-[#636E72]/70 text-sm md:text-base mt-3">
+            Small Blocks, Big Heroes. Craft Yourself.
           </p>
         </div>
 
@@ -80,14 +86,20 @@ export default function LandingPage() {
 
         {/* Secondary Buttons */}
         <div className="flex flex-col md:flex-row gap-4 w-full max-w-sm px-10">
-          <button className="flex-1 bg-white py-4 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3 border border-[#E2E8F0]">
+          <Link
+            href="/shop"
+            className="flex-1 bg-white py-4 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3 border border-[#E2E8F0]"
+          >
             <span className="material-symbols-outlined text-[24px] text-[#FF6584]">shopping_bag</span>
             <span className="font-headline font-bold text-lg text-[#2D3436]">SHOP</span>
-          </button>
-          <button className="flex-1 bg-white py-4 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3 border border-[#E2E8F0]">
+          </Link>
+          <Link
+            href="/rank"
+            className="flex-1 bg-white py-4 rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-3 border border-[#E2E8F0]"
+          >
             <span className="material-symbols-outlined text-[24px] text-[#4ECDC4]">leaderboard</span>
             <span className="font-headline font-bold text-lg text-[#2D3436]">RANK</span>
-          </button>
+          </Link>
         </div>
 
         {/* Version/Status Bar Footer */}
