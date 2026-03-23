@@ -1,57 +1,47 @@
 import Link from "next/link";
 
-const rules = [
+const infoCards = [
   {
-    number: 1,
-    title: "Be Kind",
-    description: "Treat others with respect and a big smile!",
-    icon: "favorite",
-    colorBg: "bg-pink-100",
-    colorIcon: "text-pink-500",
-    colorTitle: "text-pink-600",
-  },
-  {
-    number: 2,
-    title: "Play Safely",
-    description: "Watch your surroundings and stay in safe zones.",
-    icon: "shield",
-    colorBg: "bg-tertiary/10",
-    colorIcon: "text-tertiary",
-    colorTitle: "text-tertiary",
-  },
-  {
-    number: 3,
-    title: "Ask a Parent",
-    description: "Let a grown-up know before you start a journey.",
+    title: "Parent Account",
+    description: "A parent helps create or log into the account before the adventure continues.",
     icon: "family_restroom",
     colorBg: "bg-secondary/10",
     colorIcon: "text-secondary",
-    colorTitle: "text-secondary",
   },
   {
-    number: 4,
-    title: "Have Fun",
-    description: "Most important! Enjoy every moment of it.",
-    icon: "celebration",
-    colorBg: "bg-yellow-100",
-    colorIcon: "text-yellow-600",
-    colorTitle: "text-yellow-700",
+    title: "Saved Progress",
+    description: "Your hero, XP, dreams, and rewards can be saved safely with parent approval.",
+    icon: "shield_lock",
+    colorBg: "bg-primary/10",
+    colorIcon: "text-primary",
   },
+  {
+    title: "Guided Features",
+    description: "Some parts of HabbitCraft use AI and parent-managed tools to support the journey.",
+    icon: "auto_awesome",
+    colorBg: "bg-tertiary/10",
+    colorIcon: "text-tertiary",
+  },
+];
+
+const trustItems = [
+  "Safe for kids",
+  "Parent login required",
+  "No public posting",
 ];
 
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-bg-start to-bg-end">
-      {/* Top App Bar */}
       <header className="sticky top-0 w-full z-50 flex items-center justify-between px-6 h-16 bg-white/80 backdrop-blur-md border-b border-outline">
         <div className="flex items-center gap-3">
           <div className="bg-primary/10 p-2 rounded-full">
             <span className="material-symbols-outlined text-primary text-xl">
-              gavel
+              verified_user
             </span>
           </div>
           <h1 className="font-headline font-bold text-lg text-primary tracking-tight">
-            Quest Rules
+            Before You Continue
           </h1>
         </div>
         <Link
@@ -64,92 +54,108 @@ export default function DisclaimerPage() {
         </Link>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1 w-full max-w-md p-6 mb-24">
-        {/* Hero Header */}
         <div className="text-center mb-10">
+          <div className="mx-auto mb-5 w-24 h-24 rounded-[30px] bg-gradient-to-br from-primary to-primary-light shadow-floating border-4 border-white flex items-center justify-center">
+            <span className="material-symbols-outlined text-white text-5xl">
+              lock
+            </span>
+          </div>
           <h2 className="font-headline text-3xl font-bold text-on-surface tracking-tight mb-3">
-            Ready for your Quest?
+            Ask a Parent to Continue
           </h2>
-          <p className="font-body text-on-surface-variant px-4">
-            Follow these simple rules to become a legendary hero!
+          <p className="font-body text-on-surface-variant px-4 leading-relaxed">
+            Before you enter the next part of HabbitCraft, a parent needs to help with a safe sign-in step.
           </p>
         </div>
 
-        {/* Rules Stack */}
         <div className="space-y-4">
-          {rules.map((rule) => (
+          {infoCards.map((card) => (
             <div
-              key={rule.number}
-              className="bg-surface p-5 rounded-xl shadow-soft border border-outline flex items-center gap-5 group transition-all duration-300 hover:scale-[1.01]"
+              key={card.title}
+              className="bg-surface p-5 rounded-2xl shadow-soft border border-outline flex items-center gap-4 transition-all duration-300 hover:scale-[1.01]"
             >
               <div
-                className={`w-14 h-14 ${rule.colorBg} rounded-full flex items-center justify-center shrink-0`}
+                className={`w-14 h-14 ${card.colorBg} rounded-2xl flex items-center justify-center shrink-0`}
               >
                 <span
-                  className={`material-symbols-outlined text-3xl ${rule.colorIcon}`}
+                  className={`material-symbols-outlined text-3xl ${card.colorIcon}`}
                 >
-                  {rule.icon}
+                  {card.icon}
                 </span>
               </div>
               <div>
-                <h3
-                  className={`font-headline font-bold text-base ${rule.colorTitle} uppercase tracking-wide`}
-                >
-                  {rule.number}. {rule.title}
+                <h3 className="font-headline font-bold text-base text-on-surface tracking-wide">
+                  {card.title}
                 </h3>
                 <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                  {rule.description}
+                  {card.description}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Action Buttons */}
+        <div className="mt-8 rounded-2xl bg-white/70 border border-outline px-4 py-4">
+          <p className="font-headline text-xs font-bold uppercase tracking-[0.22em] text-primary/70 mb-3 text-center">
+            Trust & Safety
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {trustItems.map((item) => (
+              <span
+                key={item}
+                className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-12 space-y-3 px-4">
           <Link
             href="/parent-gate"
             className="block w-full py-4 bg-primary text-white font-headline font-bold text-lg rounded-full shadow-soft hover:bg-primary/90 transition-all active:scale-95 text-center"
           >
-            ACCEPT
+            CONTINUE WITH PARENT
           </Link>
           <Link
             href="/"
             className="block w-full py-3 bg-transparent text-on-surface-variant font-headline font-bold text-sm rounded-full hover:bg-black/5 transition-all text-center"
           >
-            DECLINE
+            BACK TO HOME
           </Link>
         </div>
       </main>
 
-      {/* Bottom Nav Bar */}
       <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-white/90 backdrop-blur-md border-t border-outline px-6">
         <Link
           href="/"
           className="flex flex-col items-center justify-center text-on-surface-variant gap-1 transition-colors hover:text-primary"
         >
-          <span className="material-symbols-outlined">map</span>
+          <span className="material-symbols-outlined">home</span>
           <span className="font-headline text-[10px] font-bold uppercase tracking-wider">
-            Map
+            Home
           </span>
         </Link>
         <Link
-          href="/"
+          href="/settings"
           className="flex flex-col items-center justify-center text-on-surface-variant gap-1 transition-colors hover:text-primary"
         >
-          <span className="material-symbols-outlined">auto_stories</span>
+          <span className="material-symbols-outlined">settings</span>
           <span className="font-headline text-[10px] font-bold uppercase tracking-wider">
-            Quests
+            Settings
           </span>
         </Link>
-        <div className="flex flex-col items-center justify-center text-primary gap-1 relative">
-          <div className="absolute -top-1 w-12 h-1 bg-primary rounded-full" />
-          <span className="material-symbols-outlined">list_alt</span>
+        <Link
+          href="/about"
+          className="flex flex-col items-center justify-center text-on-surface-variant gap-1 transition-colors hover:text-primary"
+        >
+          <span className="material-symbols-outlined">info</span>
           <span className="font-headline text-[10px] font-bold uppercase tracking-wider">
-            Rules
+            About
           </span>
-        </div>
+        </Link>
       </nav>
     </div>
   );

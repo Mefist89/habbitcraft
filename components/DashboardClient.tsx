@@ -159,21 +159,25 @@ export default function DashboardClient({ profile }: { profile: any }) {
 
       {/* BottomNavBar */}
       <nav className="fixed bottom-0 left-0 w-full h-24 bg-white/80 backdrop-blur-xl border-t border-white shadow-[0_-10px_40px_rgba(0,0,0,0.03)] flex justify-around items-center px-4 pb-2 z-50">
-        <button className="flex flex-col items-center justify-center bg-primary/10 text-primary rounded-2xl px-6 py-2.5 transition-all group">
+        <button className="flex flex-col items-center justify-center bg-primary/10 text-primary rounded-2xl px-4 py-2.5 transition-all group">
           <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
           <span className="font-body text-[10px] font-bold uppercase tracking-widest mt-1">{t('dashboard.nav.home')}</span>
         </button>
-        <Link href="/quest" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-4 py-2 hover:text-primary transition-all group active:scale-90 cursor-pointer">
+        <Link href="/quest" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-3 py-2 hover:text-primary transition-all group active:scale-90 cursor-pointer">
           <span className="material-symbols-outlined text-[28px]">explore</span>
           <span className="font-body text-[10px] text-on-surface-variant/50 group-hover:text-primary font-bold uppercase tracking-widest mt-1">{t('dashboard.nav.quests')}</span>
         </Link>
-        <Link href="/training" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-4 py-2 hover:text-primary transition-all group active:scale-90 cursor-pointer">
+        <Link href="/training" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-3 py-2 hover:text-primary transition-all group active:scale-90 cursor-pointer">
           <span className="material-symbols-outlined text-[28px]">fitness_center</span>
           <span className="font-body text-[10px] text-on-surface-variant/50 group-hover:text-primary font-bold uppercase tracking-widest mt-1">{t('dashboard.nav.train')}</span>
         </Link>
-        <Link href="/zen" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-4 py-2 hover:text-primary transition-all group active:scale-90">
+        <Link href="/zen" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-3 py-2 hover:text-primary transition-all group active:scale-90">
           <span className="material-symbols-outlined text-[28px]">dark_mode</span>
           <span className="font-body text-[10px] text-on-surface-variant/50 group-hover:text-primary font-bold uppercase tracking-widest mt-1">{t('dashboard.nav.sleep')}</span>
+        </Link>
+        <Link href="/dream" className="flex flex-col items-center justify-center text-on-surface-variant/50 px-3 py-2 hover:text-primary transition-all group active:scale-90">
+          <span className="material-symbols-outlined text-[28px]">auto_stories</span>
+          <span className="font-body text-[10px] text-on-surface-variant/50 group-hover:text-primary font-bold uppercase tracking-widest mt-1">Journal</span>
         </Link>
       </nav>
     </div>

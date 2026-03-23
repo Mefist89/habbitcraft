@@ -35,11 +35,11 @@ export default function LandingPage() {
         </Link>
       </div>
 
-      {/* Bottom-Right: Achievements */}
+      {/* Bottom-Right: Contact */}
       <div className="fixed bottom-6 right-6 z-50">
-        <button className="w-14 h-14 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:scale-105 active:scale-95 transition-all border border-white">
-          <span className="material-symbols-outlined text-[#6C63FF] text-[32px]">emoji_events</span>
-        </button>
+        <Link href="/contact" className="w-14 h-14 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:scale-105 active:scale-95 transition-all border border-white">
+          <span className="material-symbols-outlined text-[#6C63FF] text-[32px]">support_agent</span>
+        </Link>
       </div>
 
       {/* Main Content Container */}

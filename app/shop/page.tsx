@@ -19,7 +19,7 @@ export default async function ShopPage() {
       redirect('/select-hero');
     }
   } else {
-    redirect('/hero-intro');
+    redirect('/login?next=/shop');
   }
 
   return <ShopClient profile={profile} />;

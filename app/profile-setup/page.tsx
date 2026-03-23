@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useEffect, useMemo, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Settings, User, Calendar, Heart, Sparkles, Loader2 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
@@ -25,13 +25,56 @@ const hobbyOptions = [
 function ProfileSetupContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const heroId = searchParams.get("hero") ?? "puf";
-  const supabase = createClient();
+  const heroId = searchParams.get("hero");
+  const supabase = useMemo(() => createClient(), []);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [hobbies, setHobbies] = useState<string[]>([]);
+  const [selectedHero, setSelectedHero] = useState(heroId ?? "puf");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadExistingProfile() {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user || !isMounted) {
+        return;
+      }
+
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("name, age, gender, hobbies, selected_hero")
+        .eq("id", user.id)
+        .single();
+
+      if (!profile || !isMounted) {
+        return;
+      }
+
+      setName(profile.name ?? "");
+      setAge(profile.age ? String(profile.age) : "");
+      setGender(profile.gender ?? "");
+      setHobbies(Array.isArray(profile.hobbies) ? profile.hobbies : []);
+      setSelectedHero(heroId ?? profile.selected_hero ?? "puf");
+    }
+
+    loadExistingProfile();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [heroId, supabase]);
+
+  useEffect(() => {
+    if (heroId) {
+      setSelectedHero(heroId);
+    }
+  }, [heroId]);
 
   const toggleHobby = (id: string) => {
     setHobbies((prev) =>
@@ -55,7 +98,7 @@ function ProfileSetupContent() {
         age: parseInt(age, 10),
         gender,
         hobbies,
-        selected_hero: heroId,
+        selected_hero: selectedHero,
         updated_at: new Date().toISOString()
       });
 

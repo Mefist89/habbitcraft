@@ -5,8 +5,12 @@
       "title": "Profil",
       "edit": "Editează Profilul",
       "editDesc": "Schimbă-ți numele și avatarul",
+      "guestName": "Explorator Oaspete",
+      "guestStatus": "Autentifică-te pentru a sincroniza eroul",
+      "loading": "Se încarcă profilul...",
       "age": "Vârstă",
-      "ageDesc": "Actualizează-ți vârsta"
+      "ageDesc": "Actualizează-ți vârsta",
+      "ageUnknown": "Adaugă vârsta din Editează Profilul"
     },
     "preferences": {
       "title": "Preferințe",
@@ -19,7 +23,18 @@
       "darkMode": "Mod Întunecat",
       "darkModeDesc": "În curând",
       "theme": "Temă Modernă",
-      "themeDesc": "Alege stilul vizual"
+      "themeDesc": "Alege stilul vizual",
+      "on": "Pornit",
+      "off": "Oprit"
+    },
+    "support": {
+      "title": "Suport",
+      "contact": "Contact",
+      "contactDesc": "Deschide ajutorul și căile rapide de suport",
+      "parentDashboard": "Panoul Părintelui",
+      "parentDashboardDesc": "Deschide uneltele și rapoartele pentru părinți",
+      "login": "Autentificare",
+      "loginDesc": "Intră în cont pentru a debloca setările profilului"
     },
     "about": {
       "title": "Despre",
@@ -27,12 +42,14 @@
       "terms": "Termeni de Utilizare",
       "termsDesc": "Citește termenii noștri",
       "privacy": "Politica de Confidențialitate",
-      "privacyDesc": "Cum te protejăm"
+      "privacyDesc": "Cum te protejăm",
+      "comingSoon": "În curând"
     },
     "about_puf_description": "Companionul tău pufos care te încurajează zilnic.",
     "select_hero_title": "Alege-ți Eroul",
     "select_hero_subtitle": "Acest mic prieten te va însoți zilnic în obiceiurile și misiunile tale.",
     "select_hero_continue": "Continuă",
+    "login": "AUTENTIFICARE",
     "logout": "DECONECTARE",
     "footer": "HabbitCraft v1.0.0 • Făcut cu 💜"
   },

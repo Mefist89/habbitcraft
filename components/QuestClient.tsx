@@ -197,21 +197,25 @@ export default function QuestClient({ profile }: { profile: any }) {
 
       {/* BottomNavBar */}
       <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/70 backdrop-blur-xl shadow-[0_-10px_40px_rgba(88,96,254,0.08)] rounded-t-[2rem]">
-        <Link href="/" className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
+        <Link href="/" className="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:bg-slate-100 rounded-full transition-all group">
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">home</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Home</span>
         </Link>
-        <Link href="/quest" className="flex flex-col items-center justify-center bg-[#ded8ff] text-[#5860fe] rounded-full px-6 py-2 scale-110 transition-all border border-transparent shadow-sm">
+        <Link href="/quest" className="flex flex-col items-center justify-center bg-[#ded8ff] text-[#5860fe] rounded-full px-4 py-2 scale-110 transition-all border border-transparent shadow-sm">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>fort</span>
           <span className="font-body font-medium text-[10px]">Quests</span>
         </Link>
-        <button className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
+        <Link href="/training" className="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:bg-slate-100 rounded-full transition-all group">
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">fitness_center</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Training</span>
-        </button>
-        <Link href="/zen" className="flex flex-col items-center justify-center text-slate-400 px-6 py-2 hover:bg-slate-100 rounded-full transition-all group">
+        </Link>
+        <Link href="/zen" className="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:bg-slate-100 rounded-full transition-all group">
           <span className="material-symbols-outlined group-hover:text-primary transition-colors">dark_mode</span>
           <span className="font-body font-medium text-[10px] group-hover:text-primary">Sleep</span>
+        </Link>
+        <Link href="/dream" className="flex flex-col items-center justify-center text-slate-400 px-4 py-2 hover:bg-slate-100 rounded-full transition-all group">
+          <span className="material-symbols-outlined group-hover:text-primary transition-colors">auto_stories</span>
+          <span className="font-body font-medium text-[10px] group-hover:text-primary">Journal</span>
         </Link>
       </nav>
     </div>

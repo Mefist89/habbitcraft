@@ -5,12 +5,16 @@
       "title": "Profile",
       "edit": "Edit Profile",
       "editDesc": "Change your name and avatar",
+      "guestName": "Guest Explorer",
+      "guestStatus": "Sign in to sync your hero",
+      "loading": "Loading profile...",
       "about_puf_description": "Companionul tău pufos care te încurajează zilnic.",
       "select_hero_title": "Choose your Guardian 🧝‍♂️",
       "select_hero_subtitle": "This little friend will accompany you on your daily habits and epic quests.",
       "select_hero_continue": "Continue",
       "age": "Age",
-      "ageDesc": "Update your age"
+      "ageDesc": "Update your age",
+      "ageUnknown": "Add your age in Edit Profile"
     },
     "preferences": {
       "title": "Preferences",
@@ -23,7 +27,18 @@
       "darkMode": "Dark Mode",
       "darkModeDesc": "Coming soon",
       "theme": "Modern Theme",
-      "themeDesc": "Choose your visual style"
+      "themeDesc": "Choose your visual style",
+      "on": "On",
+      "off": "Off"
+    },
+    "support": {
+      "title": "Support",
+      "contact": "Contact",
+      "contactDesc": "Open quick help and support paths",
+      "parentDashboard": "Parent Dashboard",
+      "parentDashboardDesc": "Open the parent tools and reports",
+      "login": "Log In",
+      "loginDesc": "Sign in to unlock profile settings"
     },
     "about": {
       "title": "About",
@@ -31,8 +46,10 @@
       "terms": "Terms of Use",
       "termsDesc": "Read our terms",
       "privacy": "Privacy Policy",
-      "privacyDesc": "How we protect you"
+      "privacyDesc": "How we protect you",
+      "comingSoon": "Coming soon"
     },
+    "login": "LOG IN",
     "logout": "LOG OUT",
     "footer": "HabbitCraft v1.0.0 • Made with 💜"
   },

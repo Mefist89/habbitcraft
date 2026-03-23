@@ -2,11 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [next, setNext] = useState("/select-hero");
+
+  useEffect(() => {
+    const value =
+      new URLSearchParams(window.location.search).get("next") ?? "/select-hero";
+    setNext(value);
+  }, []);
 
   const handleGoogleSignIn = async () => {
     setIsLoading(true);
@@ -14,7 +21,7 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: `${location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
       },
     });
 
@@ -104,7 +111,7 @@ export default function LoginPage() {
 
         {/* Alternative link */}
         <Link 
-          href="/register"
+          href={`/register?next=${encodeURIComponent(next)}`}
           className="font-body text-sm text-primary hover:text-primary-light font-bold transition-colors"
         >
           Don&apos;t have an account? Create one
