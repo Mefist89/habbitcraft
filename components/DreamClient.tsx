@@ -77,6 +77,7 @@ export default function DreamClient({
   const [saveMessage, setSaveMessage] = useState("");
   const [isRecording, setIsRecording] = useState(false);
   const [isSpeechSupported, setIsSpeechSupported] = useState(false);
+  const [deletingEntryId, setDeletingEntryId] = useState<string | null>(null);
 
   const avatarImageSrc = getHeroAvatarSrc(profile?.selected_hero);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
@@ -213,6 +214,42 @@ export default function DreamClient({
     setErrorMessage("");
   };
 
+  const deleteEntry = async (entryId: string) => {
+    if (!window.confirm(t("dream.deleteConfirm"))) {
+      return;
+    }
+
+    setDeletingEntryId(entryId);
+    setErrorMessage("");
+    setSaveMessage("");
+
+    try {
+      const response = await fetch("/api/dream", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: entryId,
+          lang: language,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrorMessage(data.error || t("dream.deleteError"));
+        return;
+      }
+
+      setEntries((current) => current.filter((entry) => entry.id !== entryId));
+      setSaveMessage(t("dream.deletedMessage"));
+    } catch (error) {
+      console.error("Error deleting dream:", error);
+      setErrorMessage(t("dream.deleteError"));
+    } finally {
+      setDeletingEntryId(null);
+    }
+  };
+
   const formatDate = (dateString: string) =>
     new Intl.DateTimeFormat(locale, {
       month: "short",
@@ -222,7 +259,7 @@ export default function DreamClient({
     }).format(new Date(dateString));
 
   return (
-    <div className="min-h-dvh bg-surface font-body text-on-surface">
+    <div className="min-h-dvh bg-gradient-to-br from-bg-start to-bg-end font-body text-on-surface">
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute right-[-10%] top-[10%] h-96 w-96 rounded-full bg-primary-container/10 blur-[100px]" />
         <div className="absolute bottom-[18%] left-[-5%] h-72 w-72 rounded-full bg-tertiary-container/10 blur-[80px]" />
@@ -427,24 +464,41 @@ export default function DreamClient({
                       key={entry.id}
                       className="rounded-2xl bg-surface px-4 py-4 ring-1 ring-outline/50"
                     >
-                      <div className="flex items-start gap-3">
-                        <span className="text-2xl">{entry.mood}</span>
-                        <div>
-                          <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
-                            {t("dream.historyCardDream")}
-                          </p>
-                          <p className="text-xs text-on-surface-variant">
-                            {formatDate(entry.created_at)}
-                          </p>
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-start gap-3">
+                          <span className="text-2xl">{entry.mood}</span>
+                          <div>
+                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
+                              {t("dream.historyCardDream")}
+                            </p>
+                            <p className="text-xs text-on-surface-variant">
+                              {formatDate(entry.created_at)}
+                            </p>
+                          </div>
                         </div>
+                        <button
+                          onClick={() => void deleteEntry(entry.id)}
+                          disabled={deletingEntryId === entry.id}
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-50 text-red-500 transition-colors hover:bg-red-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                          aria-label={t("dream.deleteEntry")}
+                        >
+                          <span className="material-symbols-outlined text-[18px]">
+                            {deletingEntryId === entry.id ? "hourglass_empty" : "delete"}
+                          </span>
+                        </button>
                       </div>
                       <p className="mt-3 text-sm leading-6 text-on-surface">
                         {entry.dream_text}
                       </p>
                       <div className="mt-4 rounded-2xl bg-primary/5 px-4 py-3">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary/70">
-                          {t("dream.historyCardReply")}
-                        </p>
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary/70">
+                            {t("dream.historyCardReply")}
+                          </p>
+                          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface-variant">
+                            {deletingEntryId === entry.id ? t("dream.deleting") : t("dream.dreamGuideLabel")}
+                          </span>
+                        </div>
                         <p className="mt-2 whitespace-pre-line text-sm leading-6 text-on-surface">
                           {entry.ai_response}
                         </p>

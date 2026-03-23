@@ -255,6 +255,11 @@
     "historyCardReply": "Dream Guide Reply",
     "historyEmpty": "No saved dreams yet",
     "historyEmptyHint": "Write one dream and ask Dream Guide to create your first journal page.",
+    "deleteEntry": "Delete dream",
+    "deleteConfirm": "Delete this dream entry?",
+    "deleting": "Deleting",
+    "deletedMessage": "Dream entry deleted.",
+    "deleteError": "Could not delete this dream right now.",
     "errorTitle": "Dream Guide is resting",
     "errorDefault": "Something went wrong. Please try again in a moment."
   },

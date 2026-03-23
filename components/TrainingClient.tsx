@@ -109,7 +109,7 @@ export default function TrainingClient({ profile }: { profile: any }) {
   const xpProgress = (currentXP % 50) * 2; // Every 50 XP is one level, so multiply by 2 for percentage
 
   return (
-    <div className="bg-surface font-body text-on-surface min-h-dvh relative">
+    <div className="min-h-dvh bg-gradient-to-br from-bg-start to-bg-end font-body text-on-surface relative">
       {/* XP Notification Overlay */}
       {xpGained !== null && (
         <div className="fixed inset-0 z-100 flex items-center justify-center pointer-events-none animate-in fade-in duration-300">

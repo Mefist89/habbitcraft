@@ -88,7 +88,7 @@ export default function ShopClient({ profile }: { profile: any }) {
   };
 
   return (
-    <div className="bg-surface font-body text-on-surface min-h-dvh pb-32">
+    <div className="min-h-dvh bg-gradient-to-br from-bg-start to-bg-end font-body text-on-surface pb-32">
       {/* Success Notification */}
       {purchaseStatus === 'success' && (
         <div className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center">

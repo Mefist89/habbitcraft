@@ -255,6 +255,11 @@
     "historyCardReply": "Răspunsul Ghidului",
     "historyEmpty": "Încă nu ai vise salvate",
     "historyEmptyHint": "Scrie un vis și întreabă Ghidul Viselor ca să creezi prima pagină din jurnal.",
+    "deleteEntry": "Șterge visul",
+    "deleteConfirm": "Ștergi această înregistrare din jurnal?",
+    "deleting": "Se șterge",
+    "deletedMessage": "Înregistrarea a fost ștearsă.",
+    "deleteError": "Acest vis nu poate fi șters acum.",
     "errorTitle": "Ghidul Viselor se odihnește",
     "errorDefault": "A apărut o problemă. Încearcă din nou peste puțin timp."
   },

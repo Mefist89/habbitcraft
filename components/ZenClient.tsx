@@ -138,7 +138,7 @@ export default function ZenClient({ profile }: { profile: any }) {
     MOOD_OPTIONS.find((option) => option.id === selectedMood)?.tipKey ?? "zen.moodTips.okay";
 
   return (
-    <div className="bg-surface font-body text-on-surface min-h-[100dvh] pb-32">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-bg-start to-bg-end font-body text-on-surface pb-32">
       <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(88,96,254,0.08)]">
         <div className="flex items-center gap-3">
           <Link href="/" className="text-[#5860fe] scale-95 hover:scale-105 active:scale-90 transition-transform flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">

@@ -167,7 +167,7 @@ export default function QuestClient({ profile }: { profile: any }) {
   };
 
   return (
-    <div className="bg-surface font-body text-on-surface min-h-[100dvh] pb-32">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-bg-start to-bg-end font-body text-on-surface pb-32">
       {/* Floating XP Notification */}
       {xpGained !== null && (
         <div className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center">

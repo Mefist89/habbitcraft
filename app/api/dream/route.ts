@@ -101,6 +101,57 @@ export async function GET() {
   return NextResponse.json(data ?? []);
 }
 
+export async function DELETE(req: Request) {
+  const supabase = await createClient();
+
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id, lang = "en" } = (await req.json()) as {
+      id?: string;
+      lang?: "en" | "ro";
+    };
+
+    if (!id) {
+      return NextResponse.json(
+        {
+          error: getErrorMessage(
+            lang,
+            lang === "ro" ? "Lipsește ID-ul visului." : "Dream entry id is missing.",
+          ),
+        },
+        { status: 400 },
+      );
+    }
+
+    const { error } = await supabase
+      .from("dream_entries")
+      .delete()
+      .eq("id", id)
+      .eq("user_id", user.id);
+
+    if (error) {
+      return NextResponse.json(
+        { error: getErrorMessage(lang, error.message) },
+        { status: 500 },
+      );
+    }
+
+    return NextResponse.json({ success: true, id });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: error?.message || "Failed to delete dream entry" },
+      { status: 500 },
+    );
+  }
+}
+
 export async function POST(req: Request) {
   const supabase = await createClient();
 

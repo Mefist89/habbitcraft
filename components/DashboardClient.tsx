@@ -36,7 +36,7 @@ export default function DashboardClient({ profile }: { profile: any }) {
   const xpProgress = (currentXP % 50) * 2; // Real XP progress percentage
 
   return (
-    <div className="bg-surface text-on-surface min-h-screen pb-32">
+    <div className="min-h-screen bg-gradient-to-br from-bg-start to-bg-end text-on-surface pb-32">
       <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(88,96,254,0.08)] flex justify-between items-center px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full overflow-hidden bg-primary-container/20 border-2 border-primary">
