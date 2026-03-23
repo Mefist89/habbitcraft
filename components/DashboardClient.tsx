@@ -36,7 +36,7 @@ export default function DashboardClient({ profile }: { profile: any }) {
   const xpProgress = (currentXP % 50) * 2; // Real XP progress percentage
 
   return (
-    <div className="min-h-dvh pb-32">
+    <div className="min-h-dvh pb-52">
       {/* Top App Bar */}
       <header className="fixed top-0 w-full h-20 bg-white/80 backdrop-blur-xl flex items-center justify-between px-6 z-50 border-b border-outline">
         <div className="flex items-center gap-3">
@@ -167,17 +167,19 @@ export default function DashboardClient({ profile }: { profile: any }) {
           </Link>
         </section>
 
-        {/* CTA Section */}
-        <section className="pt-6 pb-6 flex justify-center w-full">
-          <Link 
+      </main>
+
+      <div className="fixed inset-x-0 bottom-28 z-40 px-6 pointer-events-none">
+        <div className="max-w-2xl mx-auto">
+          <Link
             href="/quest"
-            className="w-full py-5 bg-linear-to-r from-primary to-primary-light text-white font-headline font-bold text-lg rounded-full shadow-[0_15px_30px_rgba(60,67,228,0.25)] hover:shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer"
+            className="w-full py-5 bg-linear-to-r from-primary to-primary-light text-white font-headline font-bold text-lg rounded-full shadow-[0_18px_40px_rgba(60,67,228,0.28)] hover:shadow-primary/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer pointer-events-auto"
           >
             <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>
             {t('dashboard.start')}
           </Link>
-        </section>
-      </main>
+        </div>
+      </div>
 
       {/* BottomNavBar */}
       <nav className="fixed bottom-0 left-0 w-full h-24 bg-white/80 backdrop-blur-xl border-t border-white shadow-[0_-10px_40px_rgba(0,0,0,0.03)] flex justify-around items-center px-4 pb-2 z-50">

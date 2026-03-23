@@ -94,22 +94,85 @@
     "quietTime": "✨ Quiet Time",
     "heading": "Zen Zone: Recover & Relax",
     "description": "Take a moment to breathe. This is your space to let your mind wander through the stars.",
+    "checkInEyebrow": "Calm Check-In",
+    "checkInTitle": "How does your hero heart feel right now?",
+    "checkInDesc": "Pick your mood, then use a peaceful sound to settle your mind before sleep.",
     "rechargeTitle": "Recharging Energy...",
     "rechargeDesc": "Resting here regenerates your Hero's HP for tomorrow's battles.",
     "healingAudios": "Healing Audios",
-    "seeAll": "See all",
+    "playerSubtitle": "One sound at a time. Press play and let the room get quieter.",
+    "nowPlaying": "Now Playing",
+    "play": "Play",
+    "pause": "Pause",
+    "audioUnsupported": "This device cannot play the Zen sounds right now.",
+    "audioStartError": "The sound could not start. Please tap play again.",
     "audio1Title": "Mindfulness for Heroes",
-    "audio1Desc": "8 mins • Guided meditation",
+    "audio1Desc": "Gentle focus • Soft drone",
+    "audio1Meta": "Slow and steady",
+    "audio1Hint": "Soft tones are playing to help your shoulders drop and your thoughts slow down.",
     "audio2Title": "Deep Breathing (3 mins)",
-    "audio2Desc": "Quick recovery • Focus",
+    "audio2Desc": "Breathing guide • Calm rhythm",
+    "audio2Meta": "Inhale, hold, exhale",
+    "audio2Hint": "Follow the breathing cue and let your breath do the work.",
     "audio3Title": "Calming Starfield Sounds",
-    "audio3Desc": "Infinite loop • Ambient",
+    "audio3Desc": "Night sky ambience • Sparkling tones",
+    "audio3Meta": "Dreamy atmosphere",
+    "audio3Hint": "Tiny star-like notes will drift in and out like a quiet night sky.",
+    "breathing": {
+      "inhale": "Breathe in slowly through your nose.",
+      "hold": "Hold it softly for a moment.",
+      "exhale": "Breathe out long and easy."
+    },
     "currentLevel": "Current Zen Level",
-    "levelDesc": "You're feeling quite cozy! Keep relaxing to reach 100%.",
+    "meterLabel": "Zen meter",
+    "levelDesc": "Tap the button after a calm moment and watch your meter fill up.",
+    "meterStates": {
+      "low": "Restless winds. Start with breathing or a soft sound.",
+      "mid": "Cozy clouds. You are settling in nicely.",
+      "high": "Moonlight calm. Your hero is ready to rest."
+    },
+    "moods": {
+      "restless": "Restless",
+      "okay": "Okay",
+      "calm": "Calm"
+    },
+    "moodTips": {
+      "restless": "A slow breathing round will help first. Start gently and do not rush.",
+      "okay": "You are already halfway there. A few quiet minutes can bring full calm.",
+      "calm": "Lovely. Keep the room soft and let that peaceful feeling stay with you."
+    },
+    "recenterButton": "I Feel Calmer Now",
     "relaxActivities": "Quick Relax Activities",
-    "relax1": "Zen Doodle",
-    "relax2": "Fable Reading",
-    "relax3": "Hero's Tea"
+    "actions": {
+      "audio": {
+        "title": "Audio Room",
+        "desc": "Open the full sound player and listen without distractions."
+      },
+      "journal": {
+        "title": "Dream Journal",
+        "desc": "Write tonight's dream later or save a magical thought now."
+      },
+      "stretch": {
+        "title": "Light Stretch",
+        "desc": "Do a short body reset if you still have extra energy."
+      },
+      "home": {
+        "title": "Hero Home",
+        "desc": "Head back to your dashboard when calm time is finished."
+      }
+    }
+  },
+  "audio": {
+    "title": "Audio Room",
+    "eyebrow": "Quiet Sounds",
+    "heading": "A calm place just for listening",
+    "description": "Pick one sound, settle in, and let your room feel softer before bedtime.",
+    "playerTitle": "Sleep Audio Player",
+    "playerSubtitle": "Tap play on one soundscape and pause whenever you are ready.",
+    "backToZenTitle": "Back to Zen",
+    "backToZenDesc": "Return to your calm check-in and Zen meter.",
+    "afterTitle": "Open Dream Journal",
+    "afterDesc": "When you feel sleepy, write a dream note for later."
   },
   "quest": {
     "dailyDefense": "🛡️ Daily Defense",
@@ -129,7 +192,25 @@
     "quest3Desc": "Unlock the scrolls of wisdom and complete the ritual of learning.",
     "quest3Reward": "+20 Gold",
     "acceptQuest": "Accept Quest",
+    "completeQuest": "Complete Quest",
+    "completed": "Completed",
     "beginEpicQuest": "Begin Epic Quest",
+    "parentQuests": "Parent Quests",
+    "parentQuestsEmpty": "No active quests from your parents right now. Rest well, hero!",
+    "dailyTasks": {
+      "curiosity": {
+        "title": "Curiosity",
+        "desc": "Discover one new thing today and ask one brave question about it."
+      },
+      "logicalGame": {
+        "title": "Logical Game",
+        "desc": "Solve a quick brain puzzle and show how sharp your hero mind can be."
+      },
+      "memoryGame": {
+        "title": "Memory Game",
+        "desc": "Remember a pattern, a list, or a story detail and repeat it without help."
+      }
+    },
     "proTipTitle": "Hero's Pro-Tip",
     "proTipDesc": "Completing 3 quests in a row activates the \"Nebula Burst\" – doubling all Gold rewards for the next hour! ⚡"
   },

@@ -14,9 +14,47 @@ interface ParentTask {
   completed: boolean;
 }
 
+interface DailyQuest {
+  id: string;
+  icon: string;
+  titleKey: string;
+  descKey: string;
+  reward: number;
+}
+
+const DAILY_QUESTS: DailyQuest[] = [
+  {
+    id: "curiosity",
+    icon: "🔍",
+    titleKey: "quest.dailyTasks.curiosity.title",
+    descKey: "quest.dailyTasks.curiosity.desc",
+    reward: 10,
+  },
+  {
+    id: "logical-game",
+    icon: "🧩",
+    titleKey: "quest.dailyTasks.logicalGame.title",
+    descKey: "quest.dailyTasks.logicalGame.desc",
+    reward: 15,
+  },
+  {
+    id: "memory-game",
+    icon: "🧠",
+    titleKey: "quest.dailyTasks.memoryGame.title",
+    descKey: "quest.dailyTasks.memoryGame.desc",
+    reward: 15,
+  },
+];
+
+function getDailyQuestStorageKey() {
+  const today = new Date().toISOString().slice(0, 10);
+  return `daily-quests:${today}`;
+}
+
 export default function QuestClient({ profile }: { profile: any }) {
   const { t } = useLanguage();
   const [parentTasks, setParentTasks] = useState<ParentTask[]>([]);
+  const [completedDailyQuestIds, setCompletedDailyQuestIds] = useState<string[]>([]);
   const [xpGained, setXpGained] = useState<number | null>(null);
   const [currentXP, setCurrentXP] = useState(profile?.xp || 0);
   const [currentLevel, setCurrentLevel] = useState(profile?.level || 1);
@@ -57,6 +95,50 @@ export default function QuestClient({ profile }: { profile: any }) {
     fetchXP();
   }, [fetchXP]);
 
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(getDailyQuestStorageKey());
+      if (saved) {
+        setCompletedDailyQuestIds(JSON.parse(saved));
+      }
+    } catch (err) {
+      console.error("Failed to load daily quests:", err);
+    }
+  }, []);
+
+  const completeDailyQuest = async (quest: DailyQuest) => {
+    if (completedDailyQuestIds.includes(quest.id)) {
+      return;
+    }
+
+    try {
+      const xpRes = await fetch("/api/xp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ xpAmount: quest.reward }),
+      });
+
+      if (!xpRes.ok) {
+        return;
+      }
+
+      const xpData = await xpRes.json();
+      const updatedCompletedIds = [...completedDailyQuestIds, quest.id];
+
+      setCompletedDailyQuestIds(updatedCompletedIds);
+      window.localStorage.setItem(
+        getDailyQuestStorageKey(),
+        JSON.stringify(updatedCompletedIds),
+      );
+      setXpGained(quest.reward);
+      setCurrentXP(xpData.xp);
+      setCurrentLevel(xpData.level);
+      setTimeout(() => setXpGained(null), 2500);
+    } catch (err) {
+      console.error("Failed to complete daily quest:", err);
+    }
+  };
+
   const completeTask = async (id: string) => {
     try {
       const res = await fetch("/api/tasks", {
@@ -69,7 +151,7 @@ export default function QuestClient({ profile }: { profile: any }) {
         const xpRes = await fetch("/api/xp", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: 15 }),
+          body: JSON.stringify({ xpAmount: 15 }),
         });
         if (xpRes.ok) {
           const xpData = await xpRes.json();
@@ -140,12 +222,50 @@ export default function QuestClient({ profile }: { profile: any }) {
           <div className="absolute -right-10 -top-10 w-40 h-40 bg-tertiary-container/30 rounded-full blur-3xl"></div>
         </section>
 
-        {/* Quest List (Bento-ish Grid) */}
+        {/* Daily Quests */}
         <div className="space-y-6">
           <h3 className="font-headline font-bold text-2xl px-2">{t('quest.activeQuests')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DAILY_QUESTS.map((quest) => {
+              const completed = completedDailyQuestIds.includes(quest.id);
+
+              return (
+                <div key={quest.id} className="group bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-transparent hover:shadow-md transition-all flex flex-col justify-between">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="w-12 h-12 bg-surface-container-highest rounded-full text-2xl flex items-center justify-center">
+                      {quest.icon}
+                    </div>
+                    <div className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold">
+                      +{quest.reward} XP
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-headline font-bold text-lg mb-1">{t(quest.titleKey)}</h4>
+                    <p className="text-sm text-on-surface-variant mb-4">{t(quest.descKey)}</p>
+                    <button
+                      onClick={() => completeDailyQuest(quest)}
+                      disabled={completed}
+                      className={`w-full py-3 rounded-full font-bold text-sm transition-all active:scale-95 ${
+                        completed
+                          ? "bg-emerald-100 text-emerald-700 cursor-default"
+                          : "bg-surface-container-high hover:bg-primary hover:text-white cursor-pointer"
+                      }`}
+                    >
+                      {completed ? t("quest.completed") : t("quest.completeQuest")}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Parent Quests */}
+        <div className="space-y-6">
+          <h3 className="font-headline font-bold text-2xl px-2">{t("quest.parentQuests")}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {parentTasks.length === 0 ? (
-              <p className="text-on-surface-variant col-span-2 px-2">No active quests from your parents right now. Rest well, hero!</p>
+              <p className="text-on-surface-variant col-span-2 px-2">{t("quest.parentQuestsEmpty")}</p>
             ) : (
               parentTasks.map((task, i) => (
                 <div key={task.id} className={`${i % 3 === 2 ? 'md:col-span-2 flex-row items-center gap-6' : 'flex-col justify-between'} group bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-transparent hover:shadow-md transition-all flex`}>
@@ -173,7 +293,7 @@ export default function QuestClient({ profile }: { profile: any }) {
                       onClick={() => completeTask(task.id)}
                       className={`w-full py-3 ${i % 3 === 2 ? 'bg-linear-to-r from-primary to-primary-container text-white shadow-lg py-4' : 'bg-surface-container-high hover:bg-primary hover:text-white'} transition-all rounded-full font-bold text-sm cursor-pointer active:scale-95`}
                     >
-                      Complete Quest
+                      {t("quest.completeQuest")}
                     </button>
                   </div>
                 </div>

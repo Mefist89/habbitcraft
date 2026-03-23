@@ -94,22 +94,85 @@
     "quietTime": "✨ Timp de Liniște",
     "heading": "Zona Zen: Reîncarcare & Relaxare",
     "description": "Ia-ți un moment să respiri. Acesta este spațiul tău pentru a-ți lăsa mintea să călătorească printre stele.",
+    "checkInEyebrow": "Verificare de Calm",
+    "checkInTitle": "Cum se simte inima eroului tău acum?",
+    "checkInDesc": "Alege-ți starea, apoi pornește un sunet liniștit ca să-ți așezi mintea înainte de somn.",
     "rechargeTitle": "Reîncărcăm Energia...",
     "rechargeDesc": "Odihna aici regenerează HP-ul Eroului pentru bătăliile de mâine.",
     "healingAudios": "Sunete Vindecătoare",
-    "seeAll": "Vezi toate",
+    "playerSubtitle": "Un singur sunet odată. Apasă play și lasă camera să devină mai liniștită.",
+    "nowPlaying": "Se Redă",
+    "play": "Play",
+    "pause": "Pauză",
+    "audioUnsupported": "Acest dispozitiv nu poate reda acum sunetele Zen.",
+    "audioStartError": "Sunetul nu a pornit. Apasă din nou pe play.",
     "audio1Title": "Mindfulness pentru Eroi",
-    "audio1Desc": "8 min • Meditație ghidată",
+    "audio1Desc": "Concentrare blândă • Fundal calm",
+    "audio1Meta": "Lent și stabil",
+    "audio1Hint": "Sunetele line te ajută să-ți relaxezi umerii și să-ți încetinești gândurile.",
     "audio2Title": "Respirație Profundă (3 min)",
-    "audio2Desc": "Recuperare rapidă • Concentrare",
+    "audio2Desc": "Ghid de respirație • Ritm calm",
+    "audio2Meta": "Inspiră, ține, expiră",
+    "audio2Hint": "Urmează indicația de respirație și lasă respirația să lucreze pentru tine.",
     "audio3Title": "Sunete Calmante Stelare",
-    "audio3Desc": "Buclă infinită • Ambiental",
+    "audio3Desc": "Atmosferă de noapte • Sclipiri line",
+    "audio3Meta": "Atmosferă de vis",
+    "audio3Hint": "Note mici, ca niște stele, vor apărea și vor dispărea ca pe un cer liniștit de noapte.",
+    "breathing": {
+      "inhale": "Inspiră încet pe nas.",
+      "hold": "Ține aerul ușor pentru o clipă.",
+      "exhale": "Expiră lung și liniștit."
+    },
     "currentLevel": "Nivelul curent de Zen",
-    "levelDesc": "Te simți destul de confortabil! Continuă să te relaxezi până la 100%.",
+    "meterLabel": "Contor Zen",
+    "levelDesc": "Apasă butonul după un moment liniștit și urmărește cum se umple contorul.",
+    "meterStates": {
+      "low": "Vânt agitat. Începe cu respirația sau cu un sunet blând.",
+      "mid": "Nori pufoși. Te așezi frumos în starea de calm.",
+      "high": "Calm sub lumina lunii. Eroul tău este gata să se odihnească."
+    },
+    "moods": {
+      "restless": "Agitat",
+      "okay": "Binișor",
+      "calm": "Calm"
+    },
+    "moodTips": {
+      "restless": "O rundă lentă de respirație te va ajuta prima. Începe blând și fără grabă.",
+      "okay": "Ești deja la jumătatea drumului. Câteva minute liniștite pot aduce calm deplin.",
+      "calm": "Minunat. Păstrează camera liniștită și lasă pacea să rămână cu tine."
+    },
+    "recenterButton": "Mă Simt Mai Calm Acum",
     "relaxActivities": "Activități de Relaxare",
-    "relax1": "Măzgălituri Zen",
-    "relax2": "Citit Fabule",
-    "relax3": "Ceaiul Eroului"
+    "actions": {
+      "audio": {
+        "title": "Camera Audio",
+        "desc": "Deschide playerul complet și ascultă fără distrageri."
+      },
+      "journal": {
+        "title": "Jurnalul Viselor",
+        "desc": "Scrie visul din această noapte mai târziu sau salvează acum un gând magic."
+      },
+      "stretch": {
+        "title": "Stretch Ușor",
+        "desc": "Fă o scurtă resetare a corpului dacă mai ai energie."
+      },
+      "home": {
+        "title": "Acasă la Erou",
+        "desc": "Întoarce-te la dashboard când timpul de calm s-a încheiat."
+      }
+    }
+  },
+  "audio": {
+    "title": "Camera Audio",
+    "eyebrow": "Sunete Liniștite",
+    "heading": "Un loc calm doar pentru ascultat",
+    "description": "Alege un sunet, așază-te comod și lasă camera să devină mai liniștită înainte de somn.",
+    "playerTitle": "Player Audio de Somn",
+    "playerSubtitle": "Apasă play pe un soundscape și pune pauză când simți că e suficient.",
+    "backToZenTitle": "Înapoi la Zen",
+    "backToZenDesc": "Revino la verificarea de calm și la contorul Zen.",
+    "afterTitle": "Deschide Jurnalul",
+    "afterDesc": "Când ți se face somn, scrie o notiță pentru visul de mai târziu."
   },
   "quest": {
     "dailyDefense": "🛡️ Apărare Zilnică",
@@ -129,7 +192,25 @@
     "quest3Desc": "Deschide pergamentele înțelepciunii și completează ritualul învățării.",
     "quest3Reward": "+20 Aur",
     "acceptQuest": "Acceptă Misiunea",
+    "completeQuest": "Finalizează Misiunea",
+    "completed": "Finalizat",
     "beginEpicQuest": "Începe Misiunea Epică",
+    "parentQuests": "Misiuni de la Părinți",
+    "parentQuestsEmpty": "Nu există misiuni active de la părinți acum. Odihnește-te, eroule!",
+    "dailyTasks": {
+      "curiosity": {
+        "title": "Curiozitate",
+        "desc": "Descoperă ceva nou azi și pune o întrebare curajoasă despre acel lucru."
+      },
+      "logicalGame": {
+        "title": "Joc Logic",
+        "desc": "Rezolvă un puzzle rapid și arată cât de ascuțită este mintea ta de erou."
+      },
+      "memoryGame": {
+        "title": "Joc de Memorie",
+        "desc": "Ține minte un model, o listă sau un detaliu dintr-o poveste și repetă-l fără ajutor."
+      }
+    },
     "proTipTitle": "Sfatul Eroului",
     "proTipDesc": "Completarea a 3 misiuni la rând activează \"Explozia Nebuloasei\" – dublând toate recompensele de Aur pentru ora următoare! ⚡"
   },
