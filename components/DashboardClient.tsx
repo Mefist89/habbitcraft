@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { getHeroAvatarSrc, getHeroImageSrc } from "@/lib/heroAssets";
-import PrimaryPillButton from "@/components/ui/PrimaryPillButton";
 
 export default function DashboardClient({ profile }: { profile: any }) {
   const { t } = useLanguage();
@@ -157,17 +156,18 @@ export default function DashboardClient({ profile }: { profile: any }) {
         </section>
         
         <section className="pt-4 flex justify-center">
-          <PrimaryPillButton
+          <Link
             href="/quest"
-            className="w-full"
-            icon={
-              <span className="material-symbols-outlined text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                rocket_launch
-              </span>
-            }
+            className="flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-br from-primary to-primary-container py-5 font-headline text-lg font-bold text-on-primary shadow-[0_15px_30px_rgba(60,67,228,0.25)] transition-all hover:scale-[1.02] active:scale-95"
           >
+            <span
+              className="material-symbols-outlined text-[28px]"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              rocket_launch
+            </span>
             {t('dashboard.start')}
-          </PrimaryPillButton>
+          </Link>
         </section>
       </main>
 
