@@ -371,7 +371,12 @@ export default function ZenAudioPlayer({
                 <PrimaryPillButton
                   onClick={() => void toggleScene(scene.id)}
                   size="md"
-                  className="shrink-0 min-w-[108px]"
+                  className="shrink-0 min-w-[132px]"
+                  icon={
+                    <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                      {isActive ? "pause_circle" : "play_arrow"}
+                    </span>
+                  }
                 >
                   {isActive ? t("zen.pause") : t("zen.play")}
                 </PrimaryPillButton>

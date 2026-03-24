@@ -160,6 +160,11 @@ export default function DashboardClient({ profile }: { profile: any }) {
           <PrimaryPillButton
             href="/quest"
             className="w-full"
+            icon={
+              <span className="material-symbols-outlined text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                rocket_launch
+              </span>
+            }
           >
             {t('dashboard.start')}
           </PrimaryPillButton>

@@ -243,6 +243,11 @@ export default function ZenClient({ profile }: { profile: any }) {
             <PrimaryPillButton
               onClick={markCalmer}
               className="w-full"
+              icon={
+                <span className="material-symbols-outlined text-[22px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                  self_improvement
+                </span>
+              }
             >
               {t("zen.recenterButton")}
             </PrimaryPillButton>
@@ -258,11 +263,11 @@ export default function ZenClient({ profile }: { profile: any }) {
               <Link
                 key={action.href}
                 href={action.href}
-                className="rounded-[2rem] bg-linear-to-r from-primary to-primary-container px-5 py-5 text-on-primary shadow-[0_16px_34px_rgba(88,96,254,0.2)] transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(88,96,254,0.28)] active:scale-[0.98]"
+                className="rounded-[2rem] bg-surface-container-lowest px-5 py-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
                 <div className="mb-3 text-3xl">{action.icon}</div>
-                <p className="mb-1 font-headline text-sm font-bold">{t(action.titleKey)}</p>
-                <p className="text-sm leading-relaxed text-white/85">{t(action.descKey)}</p>
+                <p className="mb-1 font-headline text-sm font-bold text-on-surface">{t(action.titleKey)}</p>
+                <p className="text-sm leading-relaxed text-on-surface-variant">{t(action.descKey)}</p>
               </Link>
             ))}
           </div>
