@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { getHeroAvatarSrc } from "@/lib/heroAssets";
+import PrimaryPillButton from "@/components/ui/PrimaryPillButton";
 
 type DreamEntry = {
   id: string;
@@ -288,247 +289,288 @@ export default function DreamClient({
         </Link>
       </nav>
 
-      <main className="mx-auto max-w-6xl space-y-8 px-6 pb-32 pt-24">
-        <header className="space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-primary">
-            <span>{t("dream.todayBadge")}</span>
-          </div>
-          <h1 className="font-headline text-4xl font-extrabold tracking-tight text-on-surface">
-            {t("dream.heading")}
-          </h1>
-          <p className="font-medium text-on-surface-variant">{t("dream.subtitle")}</p>
-        </header>
-
-        <section className="grid grid-cols-1 gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-6">
-            <div className="rounded-3xl bg-surface-container-lowest p-6 shadow-[0_20px_40px_rgba(88,96,254,0.04)] ring-1 ring-outline-variant/10">
-              <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p className="font-headline text-lg font-bold text-on-surface">
-                    {t("dream.inputTitle")}
-                  </p>
-                  <p className="mt-1 text-sm text-on-surface-variant">
-                    {t("dream.inputSubtitle")}
-                  </p>
-                </div>
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                  {dreamText.trim().length} {t("dream.charsLabel")}
-                </span>
-              </div>
-
-              <div className="mb-4 flex flex-wrap gap-2">
-                {promptKeys.map((promptKey) => (
-                  <button
-                    key={promptKey}
-                    onClick={() => insertPrompt(promptKey)}
-                    className="rounded-full bg-primary/8 px-3 py-2 text-left text-xs font-semibold text-primary transition-colors hover:bg-primary/14 active:scale-95"
-                  >
-                    {t(`dream.prompts.${promptKey}`)}
-                  </button>
-                ))}
-              </div>
-
-              <textarea
-                value={dreamText}
-                onChange={(event) => setDreamText(event.target.value)}
-                suppressHydrationWarning
-                className="min-h-[220px] w-full resize-none border-none bg-transparent p-0 text-lg leading-relaxed text-on-surface placeholder:text-outline-variant/60 focus:outline-none focus:ring-0"
-                placeholder={t("dream.placeholder")}
+      <main className="mx-auto max-w-3xl space-y-6 px-6 pb-32 pt-24">
+        <header className="relative overflow-hidden rounded-[2rem] bg-linear-to-br from-primary to-primary-container px-6 py-7 text-white shadow-[0_20px_40px_rgba(88,96,254,0.18)]">
+          <div className="relative z-10 flex flex-col gap-5 sm:flex-row sm:items-center">
+            <div className="h-20 w-20 shrink-0 overflow-hidden rounded-[1.5rem] border-4 border-white/70 bg-white/20">
+              <Image
+                src={avatarImageSrc}
+                alt="Avatar"
+                width={80}
+                height={80}
+                className="h-full w-full object-contain p-2"
               />
-
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-surface-container-high/50 pt-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-outline-variant">
-                    {t("dream.detailsLabel")}
-                  </span>
-                  <p className="mt-1 text-xs text-on-surface-variant">
-                    {t("dream.autoSaveHint")}
-                  </p>
-                </div>
-                <button
-                  onClick={toggleRecording}
-                  disabled={!isSpeechSupported && !isRecording}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-all active:scale-95 ${
-                    isRecording
-                      ? "bg-secondary text-white shadow-lg shadow-secondary/20"
-                      : "bg-primary/10 text-primary hover:bg-primary/15"
-                  } ${!isSpeechSupported && !isRecording ? "cursor-not-allowed opacity-50" : ""}`}
-                >
-                  <span className="material-symbols-outlined text-lg">
-                    {isRecording ? "stop_circle" : "mic"}
-                  </span>
-                  {isRecording ? t("dream.recordStop") : t("dream.recordStart")}
-                </button>
+            </div>
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] text-white">
+                <span>{t("dream.todayBadge")}</span>
               </div>
-
-              <p className="mt-3 text-xs text-on-surface-variant">
-                {isRecording
-                  ? t("dream.recordingActive")
-                  : isSpeechSupported
-                    ? t("dream.recordingHint")
-                    : t("dream.recordingUnsupported")}
+              <h1 className="font-headline text-4xl font-extrabold tracking-tight">
+                {t("dream.heading")}
+              </h1>
+              <p className="max-w-xl text-white/85">
+                {t("dream.subtitle")}
               </p>
             </div>
+          </div>
+          <div className="absolute -right-10 -top-12 h-28 w-28 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -bottom-10 left-10 h-24 w-24 rounded-full bg-tertiary-container/20 blur-3xl" />
+        </header>
 
-            <div className="rounded-3xl bg-surface-container-low p-6">
-              <h3 className="font-headline text-lg font-bold">{t("dream.moodTitle")}</h3>
-              <div className="mt-4 grid grid-cols-5 gap-3">
-                {moodLabels.map((mood, index) => (
-                  <button
-                    key={mood.key}
-                    onClick={() => setSelectedMood(index)}
-                    className={`flex min-h-24 flex-col items-center justify-center rounded-2xl bg-surface-container-lowest px-2 py-3 text-center shadow-sm transition-all hover:-translate-y-0.5 active:scale-95 ${
-                      selectedMood === index ? "ring-4 ring-primary-container" : ""
-                    }`}
-                  >
-                    <span className="text-3xl">{mood.emoji}</span>
-                    <span className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface-variant">
-                      {mood.label}
-                    </span>
-                  </button>
-                ))}
-              </div>
+        <section className="rounded-[2rem] bg-surface-container-lowest p-6 shadow-[0_20px_40px_rgba(88,96,254,0.04)] ring-1 ring-outline-variant/10">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 font-headline text-lg font-black text-primary">
+              1
             </div>
-
-            {errorMessage ? (
-              <div className="rounded-3xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
-                <p className="font-headline font-bold">{t("dream.errorTitle")}</p>
-                <p className="mt-1">{errorMessage}</p>
-              </div>
-            ) : null}
-
-            {saveMessage ? (
-              <div className="rounded-3xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-700">
-                <p className="font-headline font-bold">{saveMessage}</p>
-              </div>
-            ) : null}
+            <div>
+              <h2 className="font-headline text-xl font-bold text-on-surface">{t("dream.stepMoodTitle")}</h2>
+              <p className="text-sm text-on-surface-variant">{t("dream.stepMoodDesc")}</p>
+            </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-primary-container to-secondary-container p-1">
-              <div className="rounded-[calc(1.5rem-4px)] bg-surface-container-lowest p-6 shadow-inner">
-                <div className="flex items-start gap-4">
-                  <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-on-primary ${
-                      isLoading ? "animate-pulse" : ""
-                    }`}
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {isLoading ? "hourglass_empty" : "auto_awesome"}
-                    </span>
-                  </div>
-                  <div className="min-w-0 space-y-2">
-                    <p className="font-label text-sm font-bold uppercase tracking-wider text-primary">
-                      {t("dream.dreamGuideLabel")}
-                    </p>
-                    <div className="whitespace-pre-line text-sm font-medium leading-7 text-on-surface">
-                      {isLoading ? (
-                        <div className="flex items-center gap-1">
-                          <span className="animate-bounce">✨</span>
-                          <span className="animate-bounce [animation-delay:0.2s]">✨</span>
-                          <span className="animate-bounce [animation-delay:0.4s]">✨</span>
-                        </div>
-                      ) : (
-                        aiResponse || t("dream.responsePlaceholder")
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-tertiary-container/30 blur-3xl" />
-              <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-primary-container/30 blur-3xl" />
-            </div>
-
-            <div className="rounded-3xl border border-outline bg-white p-6 shadow-soft">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="font-headline text-xl font-bold text-on-surface">
-                    {t("dream.historyTitle")}
-                  </h3>
-                  <p className="mt-1 text-sm text-on-surface-variant">
-                    {t("dream.historySubtitle")}
-                  </p>
-                </div>
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                  {entries.length}
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+            {moodLabels.map((mood, index) => (
+              <button
+                key={mood.key}
+                onClick={() => setSelectedMood(index)}
+                className={`flex min-h-24 flex-col items-center justify-center rounded-2xl bg-surface px-3 py-4 text-center shadow-sm transition-all hover:-translate-y-0.5 active:scale-95 ${
+                  selectedMood === index ? "ring-4 ring-primary-container bg-primary/5" : ""
+                }`}
+              >
+                <span className="text-3xl">{mood.emoji}</span>
+                <span className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-on-surface-variant">
+                  {mood.label}
                 </span>
-              </div>
-
-              <div className="mt-5 space-y-4">
-                {entries.length > 0 ? (
-                  entries.map((entry) => (
-                    <article
-                      key={entry.id}
-                      className="rounded-2xl bg-surface px-4 py-4 ring-1 ring-outline/50"
-                    >
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="flex items-start gap-3">
-                          <span className="text-2xl">{entry.mood}</span>
-                          <div>
-                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
-                              {t("dream.historyCardDream")}
-                            </p>
-                            <p className="text-xs text-on-surface-variant">
-                              {formatDate(entry.created_at)}
-                            </p>
-                          </div>
-                        </div>
-                        <button
-                          onClick={() => void deleteEntry(entry.id)}
-                          disabled={deletingEntryId === entry.id}
-                          className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-50 text-red-500 transition-colors hover:bg-red-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
-                          aria-label={t("dream.deleteEntry")}
-                        >
-                          <span className="material-symbols-outlined text-[18px]">
-                            {deletingEntryId === entry.id ? "hourglass_empty" : "delete"}
-                          </span>
-                        </button>
-                      </div>
-                      <p className="mt-3 text-sm leading-6 text-on-surface">
-                        {entry.dream_text}
-                      </p>
-                      <div className="mt-4 rounded-2xl bg-primary/5 px-4 py-3">
-                        <div className="flex items-center justify-between gap-3">
-                          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary/70">
-                            {t("dream.historyCardReply")}
-                          </p>
-                          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface-variant">
-                            {deletingEntryId === entry.id ? t("dream.deleting") : t("dream.dreamGuideLabel")}
-                          </span>
-                        </div>
-                        <p className="mt-2 whitespace-pre-line text-sm leading-6 text-on-surface">
-                          {entry.ai_response}
-                        </p>
-                      </div>
-                    </article>
-                  ))
-                ) : (
-                  <div className="rounded-2xl border border-dashed border-outline px-4 py-8 text-center">
-                    <p className="font-headline text-lg font-bold text-on-surface">
-                      {t("dream.historyEmpty")}
-                    </p>
-                    <p className="mt-2 text-sm text-on-surface-variant">
-                      {t("dream.historyEmptyHint")}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
+              </button>
+            ))}
           </div>
         </section>
 
-        <div className="py-4">
-          <button
+        <section className="rounded-[2rem] bg-surface-container-lowest p-6 shadow-[0_20px_40px_rgba(88,96,254,0.04)] ring-1 ring-outline-variant/10">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 font-headline text-lg font-black text-primary">
+              2
+            </div>
+            <div>
+              <h2 className="font-headline text-xl font-bold text-on-surface">{t("dream.stepTellTitle")}</h2>
+              <p className="text-sm text-on-surface-variant">{t("dream.stepTellDesc")}</p>
+            </div>
+          </div>
+
+          <div className="mb-4 flex flex-wrap gap-2">
+            {promptKeys.map((promptKey) => (
+              <button
+                key={promptKey}
+                onClick={() => insertPrompt(promptKey)}
+                className="rounded-full bg-primary/8 px-4 py-2 text-left text-sm font-semibold text-primary transition-colors hover:bg-primary/14 active:scale-95"
+              >
+                {t(`dream.prompts.${promptKey}`)}
+              </button>
+            ))}
+          </div>
+
+          <div className="rounded-[1.5rem] bg-surface p-4 ring-1 ring-outline/10">
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <p className="font-headline text-lg font-bold text-on-surface">{t("dream.inputTitle")}</p>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                {dreamText.trim().length} {t("dream.charsLabel")}
+              </span>
+            </div>
+
+            <textarea
+              value={dreamText}
+              onChange={(event) => setDreamText(event.target.value)}
+              suppressHydrationWarning
+              className="min-h-[200px] w-full resize-none border-none bg-transparent p-0 text-lg leading-relaxed text-on-surface placeholder:text-outline-variant/60 focus:outline-none focus:ring-0"
+              placeholder={t("dream.placeholder")}
+            />
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-surface-container-high/50 pt-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-outline-variant">
+                  {t("dream.detailsLabel")}
+                </span>
+                <p className="mt-1 text-xs text-on-surface-variant">
+                  {t("dream.autoSaveHint")}
+                </p>
+              </div>
+              <button
+                onClick={toggleRecording}
+                disabled={!isSpeechSupported && !isRecording}
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-all active:scale-95 ${
+                  isRecording
+                    ? "bg-secondary text-white shadow-lg shadow-secondary/20"
+                    : "bg-primary/10 text-primary hover:bg-primary/15"
+                } ${!isSpeechSupported && !isRecording ? "cursor-not-allowed opacity-50" : ""}`}
+              >
+                <span className="material-symbols-outlined text-lg">
+                  {isRecording ? "stop_circle" : "mic"}
+                </span>
+                {isRecording ? t("dream.recordStop") : t("dream.recordStart")}
+              </button>
+            </div>
+          </div>
+
+          <p className="mt-3 text-sm text-on-surface-variant">
+            {isRecording
+              ? t("dream.recordingActive")
+              : isSpeechSupported
+                ? t("dream.recordingHint")
+                : t("dream.recordingUnsupported")}
+          </p>
+        </section>
+
+        <section className="rounded-[2rem] bg-surface-container-lowest p-6 shadow-[0_20px_40px_rgba(88,96,254,0.04)] ring-1 ring-outline-variant/10">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 font-headline text-lg font-black text-primary">
+              3
+            </div>
+            <div>
+              <h2 className="font-headline text-xl font-bold text-on-surface">{t("dream.stepMagicTitle")}</h2>
+              <p className="text-sm text-on-surface-variant">{t("dream.stepMagicDesc")}</p>
+            </div>
+          </div>
+
+          <PrimaryPillButton
             onClick={analyzeDream}
             disabled={isLoading || dreamText.trim().length === 0}
-            className="w-full cursor-pointer rounded-full bg-linear-to-r from-primary to-primary-container py-5 font-headline text-xl font-extrabold text-on-primary shadow-[0_20px_40px_rgba(88,96,254,0.3)] transition-all hover:opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 disabled:scale-100"
+            className="mb-5 w-full text-xl disabled:scale-100"
+            icon={
+              <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: "'FILL' 1" }}>
+                auto_awesome
+              </span>
+            }
           >
             {isLoading ? t("dream.analyzing") : t("dream.askButton")}
-          </button>
-        </div>
+          </PrimaryPillButton>
+
+          {errorMessage ? (
+            <div className="mb-4 rounded-3xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
+              <p className="font-headline font-bold">{t("dream.errorTitle")}</p>
+              <p className="mt-1">{errorMessage}</p>
+            </div>
+          ) : null}
+
+          {saveMessage ? (
+            <div className="mb-4 rounded-3xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm text-emerald-700">
+              <p className="font-headline font-bold">{saveMessage}</p>
+            </div>
+          ) : null}
+
+          <div className="relative overflow-hidden rounded-[1.75rem] bg-linear-to-br from-primary-container to-secondary-container p-1">
+            <div className="rounded-[calc(1.75rem-4px)] bg-surface-container-lowest p-5 shadow-inner">
+              <div className="flex items-start gap-4">
+                <div
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-on-primary ${
+                    isLoading ? "animate-pulse" : ""
+                  }`}
+                >
+                  <span
+                    className="material-symbols-outlined"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    {isLoading ? "hourglass_empty" : "auto_awesome"}
+                  </span>
+                </div>
+                <div className="min-w-0 space-y-2">
+                  <p className="font-label text-sm font-bold uppercase tracking-wider text-primary">
+                    {t("dream.dreamGuideLabel")}
+                  </p>
+                  <div className="whitespace-pre-line text-base font-medium leading-7 text-on-surface">
+                    {isLoading ? (
+                      <div className="flex items-center gap-1">
+                        <span className="animate-bounce">✨</span>
+                        <span className="animate-bounce [animation-delay:0.2s]">✨</span>
+                        <span className="animate-bounce [animation-delay:0.4s]">✨</span>
+                      </div>
+                    ) : (
+                      aiResponse || t("dream.responsePlaceholder")
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-tertiary-container/30 blur-3xl" />
+            <div className="absolute -bottom-12 -left-12 h-24 w-24 rounded-full bg-primary-container/30 blur-3xl" />
+          </div>
+        </section>
+
+        <section className="rounded-[2rem] border border-outline bg-white p-6 shadow-soft">
+          <div className="mb-5 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 font-headline text-lg font-black text-primary">
+                4
+              </div>
+              <div>
+                <h2 className="font-headline text-xl font-bold text-on-surface">{t("dream.stepJournalTitle")}</h2>
+                <p className="text-sm text-on-surface-variant">{t("dream.stepJournalDesc")}</p>
+              </div>
+            </div>
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+              {entries.length}
+            </span>
+          </div>
+
+          <div className="space-y-4">
+            {entries.length > 0 ? (
+              entries.map((entry) => (
+                <article
+                  key={entry.id}
+                  className="rounded-2xl bg-surface px-4 py-4 ring-1 ring-outline/50"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl">{entry.mood}</span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary/70">
+                          {t("dream.historyCardDream")}
+                        </p>
+                        <p className="text-xs text-on-surface-variant">
+                          {formatDate(entry.created_at)}
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => void deleteEntry(entry.id)}
+                      disabled={deletingEntryId === entry.id}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-50 text-red-500 transition-colors hover:bg-red-100 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                      aria-label={t("dream.deleteEntry")}
+                    >
+                      <span className="material-symbols-outlined text-[18px]">
+                        {deletingEntryId === entry.id ? "hourglass_empty" : "delete"}
+                      </span>
+                    </button>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-on-surface">
+                    {entry.dream_text}
+                  </p>
+                  <div className="mt-4 rounded-2xl bg-primary/5 px-4 py-3">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary/70">
+                        {t("dream.historyCardReply")}
+                      </p>
+                      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-on-surface-variant">
+                        {deletingEntryId === entry.id ? t("dream.deleting") : t("dream.dreamGuideLabel")}
+                      </span>
+                    </div>
+                    <p className="mt-2 whitespace-pre-line text-sm leading-6 text-on-surface">
+                      {entry.ai_response}
+                    </p>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div className="rounded-2xl border border-dashed border-outline px-4 py-8 text-center">
+                <p className="font-headline text-lg font-bold text-on-surface">
+                  {t("dream.historyEmpty")}
+                </p>
+                <p className="mt-2 text-sm text-on-surface-variant">
+                  {t("dream.historyEmptyHint")}
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
       </main>
 
       <nav className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-around rounded-t-[2rem] bg-white/70 px-4 pb-6 pt-2 shadow-[0_-10px_40px_rgba(88,96,254,0.1)] backdrop-blur-xl">

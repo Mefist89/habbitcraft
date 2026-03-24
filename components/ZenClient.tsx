@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { getHeroImageSrc } from "@/lib/heroAssets";
 import ZenAudioPlayer from "@/components/ZenAudioPlayer";
+import PrimaryPillButton from "@/components/ui/PrimaryPillButton";
 
 type ZenMood = "restless" | "okay" | "calm";
 
@@ -239,12 +240,12 @@ export default function ZenClient({ profile }: { profile: any }) {
               </p>
             </div>
 
-            <button
+            <PrimaryPillButton
               onClick={markCalmer}
-              className="w-full rounded-full bg-linear-to-r from-primary to-primary-light text-white font-headline font-bold px-5 py-4 shadow-[0_12px_30px_rgba(60,67,228,0.22)] hover:scale-[1.02] active:scale-95 transition-all"
+              className="w-full"
             >
               {t("zen.recenterButton")}
-            </button>
+            </PrimaryPillButton>
           </div>
         </section>
 
@@ -257,11 +258,11 @@ export default function ZenClient({ profile }: { profile: any }) {
               <Link
                 key={action.href}
                 href={action.href}
-                className="rounded-[1.5rem] bg-surface-container-lowest px-5 py-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                className="rounded-[2rem] bg-linear-to-r from-primary to-primary-container px-5 py-5 text-on-primary shadow-[0_16px_34px_rgba(88,96,254,0.2)] transition-all hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(88,96,254,0.28)] active:scale-[0.98]"
               >
-                <div className="text-3xl mb-3">{action.icon}</div>
-                <p className="font-headline font-bold text-sm mb-1">{t(action.titleKey)}</p>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{t(action.descKey)}</p>
+                <div className="mb-3 text-3xl">{action.icon}</div>
+                <p className="mb-1 font-headline text-sm font-bold">{t(action.titleKey)}</p>
+                <p className="text-sm leading-relaxed text-white/85">{t(action.descKey)}</p>
               </Link>
             ))}
           </div>

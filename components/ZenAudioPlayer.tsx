@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import PrimaryPillButton from "@/components/ui/PrimaryPillButton";
 
 type SceneId = "mindfulness" | "breathing" | "starfield";
 
@@ -367,16 +368,13 @@ export default function ZenAudioPlayer({
                     {t(scene.metaKey)}
                   </p>
                 </div>
-                <button
+                <PrimaryPillButton
                   onClick={() => void toggleScene(scene.id)}
-                  className={`shrink-0 rounded-full px-5 py-3 font-bold transition-all ${
-                    isActive
-                      ? "bg-primary text-white shadow-lg"
-                      : "bg-primary-container text-on-primary-container hover:bg-primary hover:text-white"
-                  }`}
+                  size="md"
+                  className="shrink-0 min-w-[108px]"
                 >
                   {isActive ? t("zen.pause") : t("zen.play")}
-                </button>
+                </PrimaryPillButton>
               </div>
 
               <div className="mt-4 rounded-2xl bg-white/70 px-4 py-3 text-sm text-on-surface-variant">
