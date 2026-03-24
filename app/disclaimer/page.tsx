@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PrimaryPillButton from "@/components/ui/PrimaryPillButton";
 
 const infoCards = [
   {
@@ -113,12 +114,12 @@ export default function DisclaimerPage() {
         </div>
 
         <div className="mt-12 space-y-3 px-4">
-          <Link
+          <PrimaryPillButton
             href="/parent-gate"
-            className="block w-full py-4 bg-primary text-white font-headline font-bold text-lg rounded-full shadow-soft hover:bg-primary/90 transition-all active:scale-95 text-center"
+            className="w-full"
           >
             CONTINUE WITH PARENT
-          </Link>
+          </PrimaryPillButton>
           <Link
             href="/"
             className="block w-full py-3 bg-transparent text-on-surface-variant font-headline font-bold text-sm rounded-full hover:bg-black/5 transition-all text-center"
